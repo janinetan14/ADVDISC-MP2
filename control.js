@@ -63,7 +63,15 @@ var lastToggled;
 			var input = getPlayfailValue();
 			showResult("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
 		}
-		
+		else if (this.name == "straddle-encrypt"){
+			var input = getStraddleValue();
+		}
+		else if (this.name == "straddle-decrypt"){
+			var input = getStraddleValue();
+		}
+		else if (this.name == "straddle-randomKey"){
+			
+		}
 	});
 })();
 
@@ -100,6 +108,14 @@ function getPlayfailValue(){
 	var message = $("#playfair-message").val();
 	var keyword = $("#playfair-key").val();
 	return {message: message, keyword: keyword};
+}
+
+function getStraddleValue(){
+	var message = $("#straddle-message").val();
+	var key = $("#straddle-key").val();
+	var num1 = parseInt($("#straddle-num1").val());
+	var num2 = parseInt($("#straddle-num2").val());
+	return {message: message, key: key, num1: num1, num2: num2};
 }
 
 function showError(message){
