@@ -98,9 +98,9 @@ function DisplayStraddlingCheckboard(key, num1, num2){
 	}
 	var square = "";
 	row[0] = ".|0123456789";
-	row[1] = " " + key.substring(0,temp1) + " " + key.substring(temp1,temp2) + " " + key.substring(temp2,8);	
+	row[1] = ".:" + key.substring(0,temp1) + "." + key.substring(temp1,temp2 -1) + "." + key.substring(temp2 - 1 ,8);	
 	row[2] = num1 + ":" + key.substring(8,18);
-	row[3] = num2 + ":" + key.substring(18,26);	
+	row[3] = num2 + ":" + key.substring(18,26) + "..";	
 	for(i = 0; i < 4; i++){
 		if (i == 0)
 			square += "<span>" + row[i].split('').join(" ") + "</span><br>";
