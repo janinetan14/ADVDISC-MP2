@@ -1,4 +1,4 @@
-function encrypt(str, amount) {
+function CaesarEncrypt(str, amount) {
 	// Wrap the amount
 	if (amount < 0)
 		return caesarShift(str, amount + 26);
@@ -37,7 +37,7 @@ function encrypt(str, amount) {
 	return output;
 }
 
-function decrypt(str, amount) {
+function CaesarDecrypt(str, amount) {
 	// Wrap the amount
 	if (amount < 0)
 		return caesarShift(str, amount + 26);
