@@ -18,8 +18,6 @@ function BifidEncrypt(text, keysquare, period) {
 		return; 
 	}
 	
-    period = period.replace(/[^0-9]/g,""));
-	
     //period = plaintext.length;
     if(isNaN(period)){
 		alert("period should be an integer"); 
@@ -78,8 +76,6 @@ function BifidDecrypt(text, keysquare, period) {
 		alert("key should not contain letter j (combine with i)."); 
 		return; 
 	}
-	
-    period = period.replace(/[^0-9]/g,""));
 	
     //period = ciphertext.length;
     if(isNaN(period)){
