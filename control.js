@@ -41,17 +41,19 @@ var lastToggled;
 		}
 		else if (this.name == "caesar-encrypt"){
 			var input = getCaesarValue();
+			showResult("Encrypted Message: " + CaesarEncrypt(input.message, input.shift));
 		}
 		else if (this.name == "caesar-decrypt"){
 			var input = getCaesarValue();
+			showResult("Decrypted Message: " + CaesarDecrypt(input.message, input.shift));
 		}
 		else if (this.name == "hill-encrypt"){
 			 var input = getHillValue();
-             encrypt(input.message,input.matrix);
+             HillEncrypt(input.message,input.matrix);
 		}
 		else if (this.name == "hill-decrypt"){
 			var input = getHillValue();
-            decrypt(input.message,input.matrix);
+            HillDecrypt(input.message,input.matrix);
 		}
 		else if (this.name == "playfair-encrypt"){
 			var input = getPlayfailValue();
