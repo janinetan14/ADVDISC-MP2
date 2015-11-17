@@ -15,6 +15,25 @@
 			<div class="panel" id="cryptography-panel">
 				<div class="panel-title title">ENCRYPTION / DECRYPTION</div>
 				<div class="option">
+					<div class="title header">ADFGVX CIPHER</div>
+					<div class="body">
+						<form class="form-horizontal">
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Message: </label>
+								<input type="text" class="form-control" id="adfgvx-message"></input>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Key Word: </label>
+								<input type="text" class="form-control" id="adfgvx-key"></input>
+							</div>
+							<div class="pull-right">
+								<button type="button" class="btn btn-default" name="adfgvx-encrypt">Encrypt</button>
+								<button type="button" class="btn btn-primary" name="adfgvx-decrypt">Decrypt</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="option">
 					<div class="title header">HILL CIPHER</div>
 					<div class="body">
 						<form class="form-horizontal">
@@ -38,12 +57,16 @@
 					<div class="body">
 						<form class="form-horizontal">
 							<div class="form-group form-group-sm">
-								<label class="col-md-3 control-label">input: </label>
+								<label class="col-md-3 control-label">Message: </label>
 								<input type="text" class="form-control"></input>
 							</div>
 							<div class="form-group form-group-sm">
-								<label class="col-md-3 control-label">Matrix:</label>
-								<textarea class="form-control" rows="5"></textarea>
+								<label class="col-md-3 control-label">Key Word: </label>
+								<input type="text" class="form-control"></input>
+							</div>
+							<div class="pull-right">
+								<button type="button" class="btn btn-default" name="playfair-encrypt">Encrypt</button>
+								<button type="button" class="btn btn-primary" name="playfair-decrypt">Decrypt</button>
 							</div>
 						</form>
 					</div>
