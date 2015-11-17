@@ -63,6 +63,12 @@ var lastToggled;
 			var input = getPlayfailValue();
 			showResult("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
 		}
+		else if (this.name == "rail-encrypt"){
+			var input = getRailValue();
+		}
+		else if (this.name == "rail-decrypt"){
+			var input = getRailValue();
+		}
 		else if (this.name == "straddle-encrypt"){
 			var input = getStraddleValue();
 			showResult("Encrypted Message: " + StraddleCheckerboardEncrypt(input.message, input.key, input.num1, input.num2));
@@ -110,6 +116,12 @@ function getPlayfailValue(){
 	var message = $("#playfair-message").val();
 	var keyword = $("#playfair-key").val();
 	return {message: message, keyword: keyword};
+}
+
+function getRailValue(){
+	var message = $("#rail-message").val();
+	var key = $("#rail-key").val();
+	return {message: message, key: key};
 }
 
 function getStraddleValue(){
