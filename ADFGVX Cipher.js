@@ -1,5 +1,5 @@
 function ADFGVXEncrypt(text, keyword, keysquare) {
-	displaykeysquare(keysquare);
+	DisplayKeySquare(keysquare);
     var plaintext,ciphertext,keysquare,keyword;
     plaintext = text.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
@@ -128,8 +128,8 @@ function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
     return plaintext;
 }
 
-function GenRandKey(){
-    var keychars = "abcdefghijklmnopqrstuvwxyz0123456789";
+function GenRandKey(keychars){
+    var keychars = keychars;
     var chars = keychars.split("");
     ret = ""; 
 	lim = chars.length
@@ -141,7 +141,7 @@ function GenRandKey(){
     return ret.toUpperCase();
 }
 
-function displaykeysquare(keysquare){
+function DisplayKeySquare(keysquare){
 var row = new Array();
 	var square = "";
 	row[0] = ".|ADFGVX";
@@ -152,7 +152,7 @@ var row = new Array();
 	row[5] = "V|" + keysquare.substring(24,30);
 	row[6] = "X|" + keysquare.substring(30,36);
 	
-	for(i = 0; i < 6; i++){
+	for(i = 0; i < 7; i++){
 		if (i == 0)
 			square += "<span>" + row[i].split('').join(" ") + "</span><br>";
 		else

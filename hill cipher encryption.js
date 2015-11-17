@@ -119,6 +119,38 @@ function createEncryptArray()
     }*/
     return en;
 }
+function translateToNumber(string,em)
+{
+    var i, aSize=string.length, m = [], iMax = em.length, k = 0, a = [];
+    for(i=0;i<aSize;i++)
+    {
+        m[i]=string.charCodeAt(i);
+        document.write(m[i]+' ');
+    }
+    var jMax = Math.ceil(m.length/iMax);
+    for (i=0;i<iMax;i++) 
+    {
+        a[i]=[];
+    }
+    
+    for (i=0;i<jMax;i++) 
+    {
+        for (j=0;j<iMax;j++) 
+        {
+            if(k<m.length)
+            {
+                if(m[k]!=32)
+                    a[j][i]=m[k]-64;
+                else
+                    a[j][i]=27;
+                k++;
+            }
+            else
+                a[j][i]=27;
+        }
+    }
+    return a;
+}
 
 function multiply(a, b) {
   var aNumRows = a.length, aNumCols = a[0].length,
@@ -158,8 +190,11 @@ function hillDecryption()
     var a = invertMatrix(createEncryptArray()); 
     if (typeof a != "undefined") 
         return multiply(a,hillEncryption());
-    else 
+    else
+    {
         document.write('Matrix used to encrypt has no inverse thus cannot be decrypted');
+        return false;
+    }
 }
 
 function display(m) {
@@ -169,6 +204,8 @@ function display(m) {
 }
 function test()
 {
+    //display(translate("this is me angeline hello",createEncryptArray()));
+    addMatrixDisplayer(translateToNumber("this is me angeline hello",createEncryptArray()));
     document.write('matrix a:<br />');
     display(createEncryptArray());
     document.write('a * b =<br />');
