@@ -36,7 +36,7 @@
 				margin-bottom: 10px;
 				border-bottom: 1px solid grey;
 			}
-			.option .header{
+			.option .header, .resultString{
 				border-bottom: 1px solid grey;
 				border-top: 1px solid grey;
 				background: aliceblue;
@@ -59,7 +59,7 @@
 	<body>
 		<div class="page-title">ADVDISC MP2: Application of Matrices in CRYPTOGRAPHY</div>
 		<div class="col-md-6">
-			<div class="panel">
+			<div class="panel" id="cryptography-panel">
 				<div class="panel-title title">ENCRYPTION / DECRYPTION</div>
 				<div class="option">
 					<div class="title header">HILL CIPHER</div>
@@ -70,7 +70,7 @@
 								<input type="text" class="form-control"></input>
 							</div>
 							<div class="form-group form-group-sm">
-								<label class="col-md-3 control-label">input long:</label>
+								<label class="col-md-3 control-label">Matrix: </label>
 								<textarea class="form-control" rows="5"></textarea>
 							</div>
 							<div class="pull-right">
@@ -89,7 +89,7 @@
 								<input type="text" class="form-control"></input>
 							</div>
 							<div class="form-group form-group-sm">
-								<label class="col-md-3 control-label">input long:</label>
+								<label class="col-md-3 control-label">Matrix:</label>
 								<textarea class="form-control" rows="5"></textarea>
 							</div>
 						</form>
@@ -98,10 +98,12 @@
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="panel">
+			<div class="panel" id="results-panel">
 				<div class="panel-title title">ENCRYPTING / DECRYPTING MATRICES</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="displayFormula.js"></script>
 		<script type="text/javascript" src="control.js"></script>
+		
 	</body>
 </html>

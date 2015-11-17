@@ -16,8 +16,11 @@ var lastToggled;
 	
 	$(".btn").click(function(){
 		if (this.name == "hill-encrypt"){
-			
+			getHillValue();
 		}
 	});
 })();
 
+function getHillValue(){
+	console.log($("textarea").val());
+}
