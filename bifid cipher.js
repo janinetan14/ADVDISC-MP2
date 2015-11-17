@@ -87,6 +87,8 @@ function BifidDecrypt(text, keysquare, period) {
 		return; 
 	}  ;
 	
+	BifidDisplayKeySquare(keysquare);
+	
     ind = "12345";   
 	pt1 = "";
     for(i = 0; i < ciphertext.length; i++){

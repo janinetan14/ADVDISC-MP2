@@ -40,7 +40,8 @@ var lastToggled;
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
 		else if (this.name == "hill-encrypt"){
-			getHillValue();
+			 var input = getHillValue();
+             test(input.message,input.matrix);
 		}
 		else if (this.name == "hill-decrypt"){
 			getHillValue();
@@ -72,7 +73,7 @@ function getBifidValue(){
 }
 
 function getHillValue(){
-	var message = $("#hill-message").val().split('');
+	var message = $("#hill-message").val().toUpperCase();
 	var tempMatrix = $("#hill-matrix").val().split("\n");
 	var matrix = [];
 	for (var i = 0; i < tempMatrix.length; i++)
