@@ -1,4 +1,4 @@
-function Encrypt(text, key) {
+function RailEncrypt(text, key) {
     plaintext = text.toUpperCase().replace(/[^A-Z]/g, "");  
     if(plaintext.length < 1){ 
 		alert("please enter some plaintext"); 
@@ -30,7 +30,7 @@ function Encrypt(text, key) {
     return ciphertext;
 }
 
-function Decrypt(text, key) {
+function RailDecrypt(text, key) {
 	var plaintext = "";
     ciphertext = text.toUpperCase().replace(/[^A-Z]/g, "");  
     if(ciphertext.length < 1){ 

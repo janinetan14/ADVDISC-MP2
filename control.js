@@ -65,9 +65,11 @@ var lastToggled;
 		}
 		else if (this.name == "rail-encrypt"){
 			var input = getRailValue();
+			showResult("Encrypted Message: " + RailEncrypt(input.message, input.key));
 		}
 		else if (this.name == "rail-decrypt"){
 			var input = getRailValue();
+			showResult("Decrypted Message: " + RailDecrypt(input.message, input.key));
 		}
 		else if (this.name == "straddle-encrypt"){
 			var input = getStraddleValue();
