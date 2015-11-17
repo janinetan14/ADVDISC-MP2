@@ -1,5 +1,5 @@
 function ADFGVXEncrypt(text, keyword, keysquare) {
-	displaykeysquare(keysquare);
+	DisplayKeySquare(keysquare);
     var plaintext,ciphertext,keysquare,keyword;
     plaintext = text.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
@@ -141,7 +141,7 @@ function GenRandKey(keychars){
     return ret.toUpperCase();
 }
 
-function displaykeysquare(keysquare){
+function DisplayKeySquare(keysquare){
 var row = new Array();
 	var square = "";
 	row[0] = ".|ADFGVX";
