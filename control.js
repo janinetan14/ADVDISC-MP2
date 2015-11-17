@@ -39,6 +39,12 @@ var lastToggled;
 		else if (this.name == "bifid-randomSquare"){
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
+		else if (this.name == "caesar-encrypt"){
+			var input = getCaesarValue();
+		}
+		else if (this.name == "caesar-decrypt"){
+			var input = getCaesarValue();
+		}
 		else if (this.name == "hill-encrypt"){
 			 var input = getHillValue();
              encrypt(input.message,input.matrix);
@@ -71,6 +77,12 @@ function getBifidValue(){
 	var period = parseInt($("#bifid-period").val());
 	var square = $("#bifid-square").val();
 	return {message: message, period: period, square: square};
+}
+
+function getCaesarValue(){
+	var message = $("#caesar-message").val();
+	var shift = parseInt($("#caesar-shift").val());
+	return {message: message, shift: shift};
 }
 
 function getHillValue(){
