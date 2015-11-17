@@ -143,16 +143,16 @@ function GenRandKey(){
 function displaykeysquare(keysquare){
 var row = new Array();
 	var square = "";
-	row[0] = " ADFGVX<br>";
-	row[1] = "A" + keysquare.substring(0,5) + "<br>";	
-	row[2] = "D" + keysquare.substring(6,11) + "<br>";
-	row[3] = "F" + keysquare.substring(12,17) + "<br>";
-	row[4] = "G" + keysquare.substring(18,23) + "<br>";
-	row[5] = "V" + keysquare.substring(24,29) + "<br>";
-	row[6] = "X" + keysquare.substring(30,35) + "<br>";
+	row[0] = "  ADFGVX";
+	row[1] = "A|" + keysquare.substring(0,5);	
+	row[2] = "D|" + keysquare.substring(6,11);
+	row[3] = "F|" + keysquare.substring(12,17);
+	row[4] = "G|" + keysquare.substring(18,23);
+	row[5] = "V|" + keysquare.substring(24,29);
+	row[6] = "X|" + keysquare.substring(30,35);
 	
 	for(i = 0; i < 6; i++)
-		square += row[i].split('').join(" ");
+		square += row[i].split('').join(" ") + "<br>";
 		
 	return square;
 }
