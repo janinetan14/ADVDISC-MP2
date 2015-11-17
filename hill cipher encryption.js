@@ -198,7 +198,7 @@ function display(m) {
     console.log('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
   }
 }
-function encrypt(message, matrix)
+function HillEncrypt(message, matrix)
 {
     showString('Message:'+ message);
     showString('Encryption Matrix');
@@ -216,7 +216,7 @@ function encrypt(message, matrix)
     showString(encMes);
 }
     
-function decrypt(message,matrix)
+function HillDecrypt(message,matrix)
 {
     showString('Message:'+ message);
     showString('Message Matrix');
