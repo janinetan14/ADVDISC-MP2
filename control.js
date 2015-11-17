@@ -31,11 +31,11 @@ var lastToggled;
 		}
 		else if (this.name == "playfair-encrypt"){
 			var input = getPlayfailValue();
-			showString("Encrypted Message: " + DoPlayfair(input.message, input.keyword, "E"));
+			showResult("Encrypted Message: " + DoPlayfair(input.message, input.keyword, "E"));
 		}
 		else if (this.name == "playfair-decrypt"){
 			var input = getPlayfailValue();
-			showString("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
+			showResult("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
 		}
 		
 	});

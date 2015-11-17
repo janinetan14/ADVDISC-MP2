@@ -29,8 +29,12 @@ function printMatrix(matrix, formulaLabel){
 	pCtr++;
 }
 
+function showResult(result){
+	$("#results-panel").append('<div class="results title resultString">'+result+'</div>');
+}
+
 function showString(s){
-	$("#results-panel").append('<div class="results title resultString">'+s+'</div>');
+	$("#results-panel").append('<div class="title text-container">'+s+'</div>');
 }
 
 function clearResultsPanel(){
