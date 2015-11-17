@@ -18,16 +18,20 @@ var lastToggled;
 		clearResultsPanel();
 		if(this.name == "adfgvx-encrypt"){
 			var input = getADFGVXValue();
-			
+			showResult("Encrypted Message: " + ADFGVXEncrypt(input.message, input.keyword, input.square));
 		}
 		else if (this.name == "adfgvx-decrypt"){
 			var input = getADFGVXValue();
-			
+			showResult("Decrypted Message: " + ADFGVXDecrypt(input.message, input.keyword, input.square));
+		}
+		else if (this.name == "adfgvx-randomSquare"){
+			$("#adfgvx-square").val(GenRandKey());
 		}
 		else if (this.name == "hill-encrypt"){
 			getHillValue();
 		}
 		else if (this.name == "hill-decrypt"){
+			getHillValue();
 		}
 		else if (this.name == "playfair-encrypt"){
 			var input = getPlayfailValue();
@@ -42,8 +46,9 @@ var lastToggled;
 })();
 
 function getHillValue(){
-	console.log($("textarea").val());
-	//console.log({matrix: matrix});
+	var message = $("#hill-message").val().split('');
+	var tempMatrix = $("#hill-matrix").val();
+	console.log(message.length + " " + tempMatrix);
 }
 
 function getPlayfailValue(){
@@ -55,5 +60,6 @@ function getPlayfailValue(){
 function getADFGVXValue(){
 	var message = $("#adfgvx-message").val();
 	var keyword = $("#adfgvx-key").val();
-	return {message: message, keyword: keyword};
+	var square = $("#adfgvx-square").val();
+	return {message: message, keyword: keyword, square: square};
 }

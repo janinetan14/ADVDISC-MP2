@@ -26,7 +26,7 @@
 								<label class="col-md-3 control-label">Key Square: </label>
 								<div class="input-group col-md-8">
 									<input type="text" class="form-control" id="adfgvx-square" disabled></input>
-									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;">Random</button></span>
+									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;" name="adfgvx-randomSquare">Random</button></span>
 								</div>
 							</div>
 							<div class="form-group form-group-sm">
@@ -46,11 +46,11 @@
 						<form class="form-horizontal">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">input: </label>
-								<input type="text" class="form-control"></input>
+								<input type="text" class="form-control" id="hill-message"></input>
 							</div>
 							<div class="form-group form-group-sm">
-								<label class="col-md-3 control-label">Matrix: </label>
-								<textarea class="form-control" rows="5"></textarea>
+								<label class="col-md-3 control-label">Encryption Matrix: </label>
+								<textarea class="form-control" rows="5" id="hill-matrix"></textarea>
 							</div>
 							<div class="pull-right">
 								<button type="button" class="btn btn-default" name="hill-encrypt">Encrypt</button>
@@ -88,5 +88,6 @@
 		<script type="text/javascript" src="displayFormula.js"></script>
 		<script type="text/javascript" src="control.js"></script>
 		<script type="text/javascript" src="Playfair Encryption.js"></script>
+		<script type="text/javascript" src="ADFGVX Cipher.js"></script>
 	</body>
 </html>

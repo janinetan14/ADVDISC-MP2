@@ -1,4 +1,5 @@
 function ADFGVXEncrypt(text, keyword, keysquare) {
+	displaykeysquare(keyword);
     var plaintext,ciphertext,keysquare,keyword;
     plaintext = text.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
@@ -154,5 +155,5 @@ var row = new Array();
 	for(i = 0; i < 6; i++)
 		square += row[i].split('').join(" ");
 		
-	return square;
+	showString(square);
 }
