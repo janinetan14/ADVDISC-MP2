@@ -91,34 +91,6 @@ function invertMatrix(M){
     //matrix I should be the inverse:
     return I;
 }
-function createEncryptArray()
-{
-    var iMax = 3;
-    var jMax = 3;
-    en[0] = new Array();
-    en[0][0]= 1;
-    en[0][1]= 1;
-    en[0][2]= 1;
-    en[1] = new Array();
-    en[1][0]= 1;
-    en[1][1]= 1;
-    en[1][2]= 1;
-    en[2] = new Array();
-    en[2][0]= 1;
-    en[2][1]= 1;
-    en[2][2]= 1;
-    
-
-    /*for (i=0;i<iMax;i++) 
-    {
-     en[i]=new Array();
-        for (j=0;j<jMax;j++) 
-        {
-            en[i][j]=i;
-        }
-    }*/
-    return en;
-}
 function translateToNumber(str,em)
 {
     var i, aSize=str.length, m = [], iMax = em.length, k = 0, a = [];
@@ -159,16 +131,18 @@ function translateToWord(a)
     {
         for (j=0;j<iMax;j++) 
         {
-            if(k<m.length)
+            if(k<iMax*jMax)
             {
-                if(m[k]!=27)
+                if(a[j][i]!=27)
+                {
                     m[k]=String.fromCharCode(a[j][i]+64);
+                }
                 else
-                    m[k]=String.fromCharCode(27);
+                    m[k]=String.fromCharCode(32);
                 k++;
             }
             else
-                m[k]= String.fromCharCode(27);
+                m[k]= String.fromCharCode(32);
         }
     }
     return m;
@@ -190,15 +164,11 @@ function multiply(a, b) {
   return m;
 }
 
-function hillEncryption(messageMatrix,encryptMatrix)
+function hillDecryption(mesMatrix, invMatrix)
 {
-	return multiply(encryptMatrix,messageMatrix);
-}
-function hillDecryption()
-{
-    var a = invertMatrix(createEncryptArray()); 
-    if (typeof a != "undefined") 
-        return multiply(a,hillEncryption());
+    
+    if (typeof invMatrix != "undefined") 
+        return multiply(invMatrix,mesMatrix);
     else
     {
         console.log('Matrix used to encrypt has no inverse thus cannot be decrypted');
@@ -213,13 +183,25 @@ function display(m) {
 }
 function test(message, matrix)
 {
+    showString('Message:'+ message);
     showString('Encryption Matrix');
     addMatrixDisplayer(matrix);
     showString('Message Matrix');
     var mesMatrix = translateToNumber(message,matrix);
     addMatrixDisplayer(mesMatrix);
+    
     showString('Encrypted Matrix');
-    addMatrixDisplayer(multiply(matrix,mesMatrix));
-    console.log('decrypted : <br/>');
-    display((hillDecryption()));
+    var encryptedMatrix =multiply(matrix,mesMatrix);
+    addMatrixDisplayer(encryptedMatrix);
+    
+    showString('Inverted Matrix');
+    var invMatrix = invertMatrix(matrix); 
+    addMatrixDisplayer(invMatrix);
+    
+    showString('Decrypted Matrix');
+    var decryptedMatrix = (hillDecryption(encryptedMatrix,invMatrix));
+    addMatrixDisplayer(decryptedMatrix);
+    
+    var decMes = translateToWord(decryptedMatrix);
+    showString('Message: '+ decMes);
 }
