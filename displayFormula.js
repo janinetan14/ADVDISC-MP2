@@ -34,7 +34,7 @@ function showResult(result){
 }
 
 function showString(s){
-	$("#results-panel").append('<div class="title text-container">'+s+'</div>');
+	$("#results-panel").append('<div class="results title text-container">'+s+'</div>');
 }
 
 function clearResultsPanel(){
