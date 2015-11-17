@@ -47,8 +47,11 @@ var lastToggled;
 
 function getHillValue(){
 	var message = $("#hill-message").val().split('');
-	var tempMatrix = $("#hill-matrix").val();
-	console.log(message.length + " " + tempMatrix);
+	var tempMatrix = $("#hill-matrix").val().split("\n");
+	var matrix = [];
+	for (var i = 0; i < tempMatrix.length; i++)
+		matrix[i] = tempMatrix[i].split(/ *, */);
+	return {message: message, matrix: matrix};
 }
 
 function getPlayfailValue(){

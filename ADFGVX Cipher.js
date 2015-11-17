@@ -1,5 +1,5 @@
 function ADFGVXEncrypt(text, keyword, keysquare) {
-	displaykeysquare(keyword);
+	displaykeysquare(keysquare);
     var plaintext,ciphertext,keysquare,keyword;
     plaintext = text.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
@@ -138,22 +138,26 @@ function GenRandKey(){
         ret += chars[index];
         chars.splice(index,1);
     } 
-    return ret;
+    return ret.toUpperCase();
 }
 
 function displaykeysquare(keysquare){
 var row = new Array();
 	var square = "";
-	row[0] = "  ADFGVX";
-	row[1] = "A|" + keysquare.substring(0,5);	
-	row[2] = "D|" + keysquare.substring(6,11);
-	row[3] = "F|" + keysquare.substring(12,17);
-	row[4] = "G|" + keysquare.substring(18,23);
-	row[5] = "V|" + keysquare.substring(24,29);
-	row[6] = "X|" + keysquare.substring(30,35);
+	row[0] = ".|ADFGVX";
+	row[1] = "A|" + keysquare.substring(0,6);	
+	row[2] = "D|" + keysquare.substring(6,12);
+	row[3] = "F|" + keysquare.substring(12,18);
+	row[4] = "G|" + keysquare.substring(18,24);
+	row[5] = "V|" + keysquare.substring(24,30);
+	row[6] = "X|" + keysquare.substring(30,36);
 	
-	for(i = 0; i < 6; i++)
-		square += row[i].split('').join(" ") + "<br>";
-		
+	for(i = 0; i < 6; i++){
+		if (i == 0)
+			square += "<span>" + row[i].split('').join(" ") + "</span><br>";
+		else
+			square += row[i].split('').join(" ") + "<br>";
+	}
+	
 	showString(square);
 }
