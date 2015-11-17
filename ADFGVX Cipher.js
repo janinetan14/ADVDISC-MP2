@@ -141,17 +141,18 @@ function GenRandKey(){
 }
 
 function displaykeysquare(keysquare){
-	var row = new Array();
+var row = new Array();
 	var square = "";
-	row[0] = keysquare.substring(0,5) + "\n";
-	row[1] = keysquare.substring(6,11) + "\n";
-	row[2] = keysquare.substring(12,17) + "\n";
-	row[3] = keysquare.substring(18,23) + "\n";
-	row[4] = keysquare.substring(24,29) + "\n";
-	row[5] = keysquare.substring(30,35) + "\n";
+	row[0] = " ADFGVX<br>";
+	row[1] = "A" + keysquare.substring(0,5) + "<br>";	
+	row[2] = "D" + keysquare.substring(6,11) + "<br>";
+	row[3] = "F" + keysquare.substring(12,17) + "<br>";
+	row[4] = "G" + keysquare.substring(18,23) + "<br>";
+	row[5] = "V" + keysquare.substring(24,29) + "<br>";
+	row[6] = "X" + keysquare.substring(30,35) + "<br>";
 	
 	for(i = 0; i < 6; i++)
-		square += row[i];
+		square += row[i].split('').join(" ");
 		
 	return square;
 }
