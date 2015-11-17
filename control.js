@@ -1,6 +1,7 @@
 var lastToggled;
 
 (function() {
+	PNotify.prototype.options.styling = "bootstrap3";
 	$(".option .body").hide();
 	
 	$(".option .header").click(function(){
@@ -25,7 +26,18 @@ var lastToggled;
 			showResult("Decrypted Message: " + ADFGVXDecrypt(input.message, input.keyword, input.square));
 		}
 		else if (this.name == "adfgvx-randomSquare"){
-			$("#adfgvx-square").val(GenRandKey());
+			$("#adfgvx-square").val(GenRandKey("abcdefghijklmnopqrstuvwxyz0123456789"));
+		}
+		else if (this.name == "bifid-encrypt"){
+			var input = getBifidValue();
+			showResult("Encrypted Message: " + BifidEncrypt(input.message, input.square, input.period));
+		}
+		else if (this.name == "bifid-decrypt"){
+			var input = getBifidValue();
+			showResult("Decrypted Message: " + BifidDecrypt(input.message, input.square, input.period));
+		}
+		else if (this.name == "bifid-randomSquare"){
+			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
 		else if (this.name == "hill-encrypt"){
 			 var input = getHillValue();
@@ -66,4 +78,19 @@ function getADFGVXValue(){
 	var keyword = $("#adfgvx-key").val();
 	var square = $("#adfgvx-square").val();
 	return {message: message, keyword: keyword, square: square};
+}
+
+function getBifidValue(){
+	var message = $("#bifid-message").val();
+	var period = parseInt($("#bifid-period").val());
+	var square = $("#bifid-square").val();
+	return {message: message, period: period, square: square};
+}
+
+function showError(message){
+	new PNotify({
+		title: 'Oh No!',
+		text: message,
+		type: 'error'
+	});
 }
