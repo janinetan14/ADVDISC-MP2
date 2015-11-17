@@ -147,6 +147,23 @@ function translateToWord(a)
     }
     return m;
 }
+function translateFromAscii(a)
+{
+    var iMax =a.length, jMax = a[0].length,k=0,m=[];
+    
+    for (i=0;i<jMax;i++) 
+    {
+        for (j=0;j<iMax;j++) 
+        {
+            if(k<iMax*jMax)
+            {
+                m[k]=String.fromCharCode(a[j][i]);
+                k++;
+            }
+        }
+    }
+    return m;
+}
 
 function multiply(a, b) {
   var aNumRows = a.length, aNumCols = a[0].length,
@@ -181,7 +198,7 @@ function display(m) {
     console.log('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
   }
 }
-function test(message, matrix)
+function encrypt(message, matrix)
 {
     showString('Message:'+ message);
     showString('Encryption Matrix');
@@ -194,14 +211,27 @@ function test(message, matrix)
     var encryptedMatrix =multiply(matrix,mesMatrix);
     addMatrixDisplayer(encryptedMatrix);
     
+    showString('Encrypted Text');
+    var encMes = translateFromAscii(encryptedMatrix);
+    showString(encMes);
+}
+    
+function decrypt(message,matrix)
+{
+    showString('Message:'+ message);
+    showString('Message Matrix');
+    var mesMatrix = translateToNumber(message,matrix);
+    addMatrixDisplayer(mesMatrix);
+    
     showString('Inverted Matrix');
     var invMatrix = invertMatrix(matrix); 
     addMatrixDisplayer(invMatrix);
     
     showString('Decrypted Matrix');
-    var decryptedMatrix = (hillDecryption(encryptedMatrix,invMatrix));
+    var decryptedMatrix = (hillDecryption(mesMatrix,invMatrix));
     addMatrixDisplayer(decryptedMatrix);
     
     var decMes = translateToWord(decryptedMatrix);
-    showString('Message: '+ decMes);
+    showString('Decrypted Text');
+    showString(decMes);
 }

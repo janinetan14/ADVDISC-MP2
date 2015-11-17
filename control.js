@@ -41,10 +41,11 @@ var lastToggled;
 		}
 		else if (this.name == "hill-encrypt"){
 			 var input = getHillValue();
-             test(input.message,input.matrix);
+             encrypt(input.message,input.matrix);
 		}
 		else if (this.name == "hill-decrypt"){
-			getHillValue();
+			var input = getHillValue();
+            decrypt(input.message,input.matrix);
 		}
 		else if (this.name == "playfair-encrypt"){
 			var input = getPlayfailValue();
