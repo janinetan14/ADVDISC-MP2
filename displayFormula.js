@@ -1,8 +1,9 @@
 var pCtr = 0;
 
-function addMatrixDisplayer(){
+// matrix sample [[1,2,3],[3,4,5],[5,6,7]]
+function addMatrixDisplayer(matrix){
 	$("#results-panel").append('<p class="results" id="Matrix'+pCtr+'" style="text-align:center"></p>');
-	printMatrix([[1,2,3],[3,4,5],[5,6,7]], "Matrix"+pCtr);
+	printMatrix(matrix, "Matrix"+pCtr);
 }
 
 function printMatrix(matrix, formulaLabel){
