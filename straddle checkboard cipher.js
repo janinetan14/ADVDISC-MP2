@@ -51,7 +51,7 @@ function StraddleCheckerboardDecrypt(text, key, num1, num2) {
 		alert("keysquare must be 26 characters in length"); 
 		return; 
 	}
-	//DisplayStraddlingCheckboard(key, num1, num2);
+	DisplayStraddlingCheckboard(key, num1, num2);
     plaintext="";
     for(i = 0; i < ciphertext.length; i++){
         if(parseInt(ciphertext.charAt(i)) == num1){
