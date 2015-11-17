@@ -6,7 +6,7 @@ function MakePlayfairSquare(key1){
 	};
 	for(i = 0; i < 5; i++){
 		for(j = 0; j < 5; j++)
-		row[i] += cyabc.charAt(5 * i + j);
+		row[i] += cyabc.charAt(5 * i + j) + " ";
 	};
 	sqr = "";
 	for(i = 0; i < 5; i++){
