@@ -85,7 +85,8 @@ function StraddleCheckerboardDecrypt(text, key, num1, num2) {
     }
     return plaintext;
 }
-function function DisplayStraddlingCheckboard(key, num1, num2){
+
+function DisplayStraddlingCheckboard(key, num1, num2){
 	if(num1 > num2){
 		temp1 = num2;
 		temp2 = num1;

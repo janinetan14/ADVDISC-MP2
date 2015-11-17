@@ -65,12 +65,14 @@ var lastToggled;
 		}
 		else if (this.name == "straddle-encrypt"){
 			var input = getStraddleValue();
+			showResult("Encrypted Message: " + StraddleCheckerboardEncrypt(input.message, input.key, input.num1, input.num2));
 		}
 		else if (this.name == "straddle-decrypt"){
 			var input = getStraddleValue();
+			showResult("Decrypted Message: " + StraddleCheckerboardDecrypt(input.message, input.key, input.num1, input.num2));
 		}
 		else if (this.name == "straddle-randomKey"){
-			
+			$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
 		}
 	});
 })();
