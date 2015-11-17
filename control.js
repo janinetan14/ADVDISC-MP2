@@ -57,6 +57,20 @@ var lastToggled;
 	});
 })();
 
+function getADFGVXValue(){
+	var message = $("#adfgvx-message").val();
+	var keyword = $("#adfgvx-key").val();
+	var square = $("#adfgvx-square").val();
+	return {message: message, keyword: keyword, square: square};
+}
+
+function getBifidValue(){
+	var message = $("#bifid-message").val();
+	var period = parseInt($("#bifid-period").val());
+	var square = $("#bifid-square").val();
+	return {message: message, period: period, square: square};
+}
+
 function getHillValue(){
 	var message = $("#hill-message").val().split('');
 	var tempMatrix = $("#hill-matrix").val().split("\n");
@@ -70,20 +84,6 @@ function getPlayfailValue(){
 	var message = $("#playfair-message").val();
 	var keyword = $("#playfair-key").val();
 	return {message: message, keyword: keyword};
-}
-
-function getADFGVXValue(){
-	var message = $("#adfgvx-message").val();
-	var keyword = $("#adfgvx-key").val();
-	var square = $("#adfgvx-square").val();
-	return {message: message, keyword: keyword, square: square};
-}
-
-function getBifidValue(){
-	var message = $("#bifid-message").val();
-	var period = parseInt($("#bifid-period").val());
-	var square = $("#bifid-square").val();
-	return {message: message, period: period, square: square};
 }
 
 function showError(message){
