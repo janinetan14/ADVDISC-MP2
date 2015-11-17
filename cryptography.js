@@ -48,6 +48,7 @@ function hillEncryption()
     e = createEncryptArray();
 	return multiply(e,f);
 }
+
 function display(m) {
   for (var r = 0; r < m.length; ++r) {
     alert('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
