@@ -10,9 +10,9 @@ function MakePlayfairSquare(key1){
 	};
 	sqr = "";
 	for(i = 0; i < 5; i++){
-		sqr += row[i] + "\n"
+		sqr += row[i] + "<br>"
 	};
-	return sqr;
+	showString("Key Square<br>" + sqr);
 }
 
 function MakeCipherABC(key1){
@@ -38,7 +38,7 @@ function MakeCipherABC(key1){
 
 function DoPlayfair(et, key1, dir)
 {
-	
+	MakePlayfairSquare(key1);
 	var regexNum = /\d/g;
 	if(regexNum.test(et)){
 		alert("please enter some plaintext (letters only)"); 

@@ -15,6 +15,7 @@ var lastToggled;
 	});
 	
 	$(".btn").click(function(){
+		clearResultsPanel();
 		if(this.name == "adfgvx-encrypt"){
 			var input = getADFGVXValue();
 			
@@ -29,8 +30,12 @@ var lastToggled;
 		else if (this.name == "hill-decrypt"){
 		}
 		else if (this.name == "playfair-encrypt"){
+			var input = getPlayfailValue();
+			showString("Encrypted Message: " + DoPlayfair(input.message, input.keyword, "E"));
 		}
 		else if (this.name == "playfair-decrypt"){
+			var input = getPlayfailValue();
+			showString("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
 		}
 		
 	});
@@ -42,6 +47,9 @@ function getHillValue(){
 }
 
 function getPlayfailValue(){
+	var message = $("#playfair-message").val();
+	var keyword = $("#playfair-key").val();
+	return {message: message, keyword: keyword};
 }
 
 function getADFGVXValue(){
