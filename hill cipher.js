@@ -96,12 +96,12 @@ function translateToNumber(str,em)
     var i, aSize=str.length, m = [], iMax = em.length, k = 0, a = [];
     for(i=0;i<aSize;i++)
     {
-        m[i]=str.charCodeAt(i);
+        m[i]=str.charCodeAt(i); //replace text with ascii values
     }
     var jMax = Math.ceil(m.length/iMax);
     for (i=0;i<iMax;i++) 
     {
-        a[i]=[];
+        a[i]=[]; //initialize array
     }
     
     for (i=0;i<jMax;i++) 
@@ -111,13 +111,13 @@ function translateToNumber(str,em)
             if(k<m.length)
             {
                 if(m[k]!=32)
-                    a[j][i]=m[k]-64;
+                    a[j][i]=m[k]-64; //replace ascii values with numbers 1-26
                 else
-                    a[j][i]=27;
+                    a[j][i]=27; // replace space with 27
                 k++;
             }
             else
-                a[j][i]=27;
+                a[j][i]=27; //fill in remaining slots with spaces(27)
         }
     }
     return a;
@@ -135,14 +135,14 @@ function translateToWord(a)
             {
                 if(a[j][i]!=27)
                 {
-                    m[k]=String.fromCharCode(a[j][i]+64);
+                    m[k]=String.fromCharCode(a[j][i]+64); //replace numbers 1-26 with ascii values
                 }
                 else
-                    m[k]=String.fromCharCode(32);
+                    m[k]=String.fromCharCode(32); //replace space with ascii value 32
                 k++;
             }
             else
-                m[k]= String.fromCharCode(32);
+                m[k]= String.fromCharCode(32); // replace space with ascii value 32
         }
     }
     return m;
@@ -157,7 +157,7 @@ function translateFromAscii(a)
         {
             if(k<iMax*jMax)
             {
-                m[k]=String.fromCharCode(a[j][i]);
+                m[k]=String.fromCharCode(a[j][i]); //translate numbers in matrix to ascii values
                 k++;
             }
         }
