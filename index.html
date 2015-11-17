@@ -36,25 +36,72 @@
 				margin-bottom: 10px;
 				border-bottom: 1px solid grey;
 			}
+			.option .header{
+				border-bottom: 1px solid grey;
+				border-top: 1px solid grey;
+				background: aliceblue;
+				opacity: .8;
+			}
+			.option .header:hover{
+				opacity: 1;
+				cursor: pointer;
+			}
+			.option input, .option textarea{
+				width: 70%;
+				resize: none;
+			}
+			.option .body{
+				padding: 10px;
+				margin-bottom: 35px;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="page-title">ADVDISC MP2: Application of Matrices in CRYPTOGRAPHY</div>
 		<div class="col-md-6">
 			<div class="panel">
-				<div class="panel-title title">ENCRYPTION</div>
+				<div class="panel-title title">ENCRYPTION / DECRYPTION</div>
 				<div class="option">
-					<div class="title header"></div>
+					<div class="title header">HILL CIPHER</div>
 					<div class="body">
-						
+						<form class="form-horizontal">
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">input: </label>
+								<input type="text" class="form-control"></input>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">input long:</label>
+								<textarea class="form-control" rows="5"></textarea>
+							</div>
+							<div class="pull-right">
+								<button type="button" class="btn btn-default">Encrypt</button>
+								<button type="button" class="btn btn-primary">Decrypt</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="option">
+					<div class="title header">PLAYFAIR CIPHER</div>
+					<div class="body">
+						<form class="form-horizontal">
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">input: </label>
+								<input type="text" class="form-control"></input>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">input long:</label>
+								<textarea class="form-control" rows="5"></textarea>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="panel">
-				<div class="panel-title title">DECRYPTION</div>
+				<div class="panel-title title">ENCRYPTING / DECRYPTING MATRICES</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="control.js"></script>
 	</body>
 </html>
