@@ -38,6 +38,13 @@ function MakeCipherABC(key1){
 
 function DoPlayfair(et, key1, dir)
 {
+	
+	var regexNum = /\d/g;
+	if(regexNum.test(et)){
+		alert("please enter some plaintext (letters only)"); 
+		return; 
+	}
+	
 	et = et.toUpperCase();
 
 	dup = "J";
@@ -45,6 +52,8 @@ function DoPlayfair(et, key1, dir)
 	key1 = key1.toUpperCase();
 	
 	pos = et.indexOf(" ");
+	
+	
 	
 	//tanggal space sa text
 	while(pos > -1){
@@ -58,6 +67,7 @@ function DoPlayfair(et, key1, dir)
 		et = et.substring(0, pos) + et.substring(pos + 1, et.length);
 		pos = et.indexOf("?");
 	};
+	
 
 	//add x if same yung letter
 	for(i = 0; i < et.length; i = i+2){
@@ -106,8 +116,10 @@ function DoPlayfair(et, key1, dir)
 
 	dt = "";
 	for(i = 0; i < et.length; i = i+2){
+	
 		pos1 = cyabc.indexOf(et.charAt(i));
 		pos2 = cyabc.indexOf(et.charAt(i + 1));
+		
 		x1 = pos1%5;
 		y1 = Math.floor(pos1/5);
 		x2 = pos2%5;
