@@ -119,13 +119,12 @@ function createEncryptArray()
     }*/
     return en;
 }
-function translateToNumber(string,em)
+function translateToNumber(str,em)
 {
-    var i, aSize=string.length, m = [], iMax = em.length, k = 0, a = [];
+    var i, aSize=str.length, m = [], iMax = em.length, k = 0, a = [];
     for(i=0;i<aSize;i++)
     {
-        m[i]=string.charCodeAt(i);
-        document.write(m[i]+' ');
+        m[i]=str.charCodeAt(i);
     }
     var jMax = Math.ceil(m.length/iMax);
     for (i=0;i<iMax;i++) 
@@ -152,6 +151,29 @@ function translateToNumber(string,em)
     return a;
 }
 
+function translateToWord(a)
+{
+    var iMax =a.length, jMax = a[0].length,k=0,m=[];
+    
+    for (i=0;i<jMax;i++) 
+    {
+        for (j=0;j<iMax;j++) 
+        {
+            if(k<m.length)
+            {
+                if(m[k]!=27)
+                    m[k]=String.fromCharCode(a[j][i]+64);
+                else
+                    m[k]=String.fromCharCode(27);
+                k++;
+            }
+            else
+                m[k]= String.fromCharCode(27);
+        }
+    }
+    return m;
+}
+
 function multiply(a, b) {
   var aNumRows = a.length, aNumCols = a[0].length,
       bNumRows = b.length, bNumCols = b[0].length,
@@ -168,22 +190,9 @@ function multiply(a, b) {
   return m;
 }
 
-function hillEncryption()
+function hillEncryption(messageMatrix,encryptMatrix)
 {
-    var iMax = 3;
-    var jMax = 3;
-    var f = new Array();
-
-    for (i=0;i<iMax;i++) 
-    {
-     f[i]=new Array();
-        for (j=0;j<jMax;j++) 
-        {
-            f[i][j]=i;
-        }
-    }
-    var e = createEncryptArray();
-	return multiply(e,f);
+	return multiply(encryptMatrix,messageMatrix);
 }
 function hillDecryption()
 {
@@ -192,24 +201,25 @@ function hillDecryption()
         return multiply(a,hillEncryption());
     else
     {
-        document.write('Matrix used to encrypt has no inverse thus cannot be decrypted');
+        console.log('Matrix used to encrypt has no inverse thus cannot be decrypted');
         return false;
     }
 }
 
 function display(m) {
   for (var r = 0; r < m.length; ++r) {
-    document.write('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
+    console.log('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
   }
 }
-function test()
+function test(message, matrix)
 {
-    //display(translate("this is me angeline hello",createEncryptArray()));
-    addMatrixDisplayer(translateToNumber("this is me angeline hello",createEncryptArray()));
-    document.write('matrix a:<br />');
-    display(createEncryptArray());
-    document.write('a * b =<br />');
-    display(hillEncryption());
-    document.write('decrypted : <br/>');
+    showString('Encryption Matrix');
+    addMatrixDisplayer(matrix);
+    showString('Message Matrix');
+    var mesMatrix = translateToNumber(message,matrix);
+    addMatrixDisplayer(mesMatrix);
+    showString('Encrypted Matrix');
+    addMatrixDisplayer(multiply(matrix,mesMatrix));
+    console.log('decrypted : <br/>');
     display((hillDecryption()));
 }
