@@ -128,8 +128,8 @@ function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
     return plaintext;
 }
 
-function GenRandKey(){
-    var keychars = "abcdefghijklmnopqrstuvwxyz0123456789";
+function GenRandKey(keychars){
+    var keychars = keychars;
     var chars = keychars.split("");
     ret = ""; 
 	lim = chars.length
