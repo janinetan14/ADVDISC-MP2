@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="index-theme.css" />
+		<link href="pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div class="page-title">ADVDISC MP2: Application of Matrices in CRYPTOGRAPHY</div>
@@ -36,6 +37,32 @@
 							<div class="pull-right">
 								<button type="button" class="btn btn-default" name="adfgvx-encrypt">Encrypt</button>
 								<button type="button" class="btn btn-primary" name="adfgvx-decrypt">Decrypt</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="option">
+					<div class="title header">BIFID CIPHER</div>
+					<div class="body">
+						<form class="form-horizontal">
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Message: </label>
+								<input type="text" class="form-control" id="bifid-message"></input>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Key Square: </label>
+								<div class="input-group col-md-8">
+									<input type="text" class="form-control" id="bifid-square" disabled></input>
+									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;" name="bifid-randomSquare">Random</button></span>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Period: </label>
+								<input type="number" class="form-control" id="bifid-period"></input>
+							</div>
+							<div class="pull-right">
+								<button type="button" class="btn btn-default" name="bifid-encrypt">Encrypt</button>
+								<button type="button" class="btn btn-primary" name="bifid-decrypt">Decrypt</button>
 							</div>
 						</form>
 					</div>
@@ -85,6 +112,7 @@
 				<div class="panel-title title">ENCRYPTING / DECRYPTING MATRICES</div>
 			</div>
 		</div>
+		<script type="text/javascript" src="pnotify.custom.min.js"></script>
 		<script type="text/javascript" src="show results.js"></script>
 		<script type="text/javascript" src="control.js"></script>
 		<script type="text/javascript" src="playfair cipher.js"></script>

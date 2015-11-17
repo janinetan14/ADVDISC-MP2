@@ -1,6 +1,7 @@
 var lastToggled;
 
 (function() {
+	PNotify.prototype.options.styling = "bootstrap3";
 	$(".option .body").hide();
 	
 	$(".option .header").click(function(){
@@ -65,4 +66,12 @@ function getADFGVXValue(){
 	var keyword = $("#adfgvx-key").val();
 	var square = $("#adfgvx-square").val();
 	return {message: message, keyword: keyword, square: square};
+}
+
+function showError(message){
+	new PNotify({
+		title: 'Oh No!',
+		text: message,
+		type: 'error'
+	});
 }
