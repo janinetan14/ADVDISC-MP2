@@ -152,7 +152,7 @@ var row = new Array();
 	row[5] = "V|" + keysquare.substring(24,30);
 	row[6] = "X|" + keysquare.substring(30,36);
 	
-	for(i = 0; i < 6; i++){
+	for(i = 0; i < 7; i++){
 		if (i == 0)
 			square += "<span>" + row[i].split('').join(" ") + "</span><br>";
 		else
