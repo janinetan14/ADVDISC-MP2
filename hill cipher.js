@@ -193,11 +193,6 @@ function hillDecryption(mesMatrix, invMatrix)
     }
 }
 
-function display(m) {
-  for (var r = 0; r < m.length; ++r) {
-    console.log('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
-  }
-}
 function HillEncrypt(message, matrix)
 {
     showString('Message:'+ message);
@@ -213,7 +208,10 @@ function HillEncrypt(message, matrix)
     
     showString('Encrypted Text');
     var encMes = translateFromAscii(encryptedMatrix);
-    showString(encMes);
+    var i,outp='';
+    for(i=0;i<encMes.length;i++)
+        outp+=encMes[i]+'';
+    showString(outp);
 }
     
 function HillDecrypt(message,matrix)
