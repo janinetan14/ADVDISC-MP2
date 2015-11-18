@@ -184,7 +184,7 @@ function HillEncrypt(message, matrix)
     showString('Encryption Matrix');
     addMatrixDisplayer(matrix);
     showString('Message Matrix');
-    var mesMatrix = translateToNumber(message,matrix);
+    var mesMatrix = translateToMatrixNumbers(message,matrix[0].length);
     addMatrixDisplayer(mesMatrix);
     
     showString('Encrypted Matrix');
@@ -192,7 +192,7 @@ function HillEncrypt(message, matrix)
     addMatrixDisplayer(encryptedMatrix);
     
     showString('Encrypted Text');
-    var encMes = translateToWord(encryptedMatrix);
+    var encMes = translateMatrixToMessage(encryptedMatrix);
     var i,outp='';
     for(i=0;i<encMes.length;i++)
         outp+=encMes[i]+'';
@@ -203,7 +203,7 @@ function HillDecrypt(message,matrix)
 {
     showString('Message:'+ message);
     showString('Message Matrix');
-    var mesMatrix = translateToNumber(message,matrix);
+    var mesMatrix = translateToMatrixNumbers(message,matrix[0].length);
     addMatrixDisplayer(mesMatrix);
     
     showString('Inverted Matrix');
@@ -218,7 +218,7 @@ function HillDecrypt(message,matrix)
         var decryptedMatrix = (hillDecryption(mesMatrix,invMatrix));
         addMatrixDisplayer(decryptedMatrix);
 
-        var decMes = translateToWord(decryptedMatrix);
+        var decMes = translateMatrixToMessage(decryptedMatrix);
         showString('Decrypted Text');
         showString(decMes);
     }
