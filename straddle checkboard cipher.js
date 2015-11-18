@@ -5,12 +5,12 @@ function StraddleCheckerboardEncrypt(text, key, num1, num2) {
 	
 	
     if(plaintext.length < 1){ 
-		alert("please enter some plaintext (letters only)"); 
+		showError("please enter some plaintext (letters only)"); 
 		return; 
 	}    
 	
     if(key.length != 26){ 
-		alert("keysquare must be 26 characters in length"); 
+		showError("keysquare must be 26 characters in length"); 
 		return; 
 	}	
 	DisplayStraddlingCheckboard(key, num1, num2);
@@ -43,12 +43,12 @@ function StraddleCheckerboardDecrypt(text, key, num1, num2) {
     key = key.toUpperCase().replace(/[^A-Z]/g, ""); 
 	
     if(ciphertext.length < 1){ 
-		alert("please enter some ciphertext (letters only)"); 
+		showError("please enter some ciphertext (letters only)"); 
 		return; 
 	}    
 	
     if(key.length != 26){ 
-		alert("keysquare must be 26 characters in length"); 
+		showError("keysquare must be 26 characters in length"); 
 		return; 
 	}
 	DisplayStraddlingCheckboard(key, num1, num2);
@@ -56,19 +56,19 @@ function StraddleCheckerboardDecrypt(text, key, num1, num2) {
     for(i = 0; i < ciphertext.length; i++){
         if(parseInt(ciphertext.charAt(i)) == num1){
                 if (ciphertext.length == i+1){
-                    alert("invalid final ciphertext character: " + num1);
+                    showError("invalid final ciphertext character: " + num1);
                     plaintext += "?";
                 }else{
                     plaintext += key.charAt( parseInt(ciphertext.charAt(++i)) +8);
                 }
     	}else if(parseInt(ciphertext.charAt(i)) == num2){
                 if (ciphertext.length == i+1){
-                    alert("invalid final ciphertext character: " + num2);
+                    showError("invalid final ciphertext character: " + num2);
                     plaintext += "?";
                 }else{
 					temp = parseInt(ciphertext.charAt(++i)) + 18;
 					if (temp > 25){ 
-					   alert("invalid ciphertext sequence: "+num2 + ciphertext.charAt(i));
+					   showError("invalid ciphertext sequence: "+num2 + ciphertext.charAt(i));
 					   plaintext += "?";
                 }else{
 					plaintext += key.charAt( temp);

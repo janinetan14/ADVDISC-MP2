@@ -1,12 +1,12 @@
 function RailEncrypt(text, key) {
     plaintext = text.toUpperCase().replace(/[^A-Z]/g, "");  
     if(plaintext.length < 1){ 
-		alert("please enter some plaintext"); 
+		showError("please enter some plaintext"); 
 		return; 
 	}    
     var key = key;
     if(key > Math.floor(2*(plaintext.length-1))){ 
-		alert("key is too large for the plaintext length."); 
+		showError("key is too large for the plaintext length."); 
 		return; 
 	}  
     if(key == 1) 
@@ -34,15 +34,15 @@ function RailDecrypt(text, key) {
 	var plaintext = "";
     ciphertext = text.toUpperCase().replace(/[^A-Z]/g, "");  
     if(ciphertext.length < 1){ 
-		alert("please enter some ciphertext (letters only)"); 
+		showError("please enter some ciphertext (letters only)"); 
 		return; 
 	}    
     var key = key;
     if(key > Math.floor(2*(ciphertext.length-1))){ 
-		alert("key is too large for the ciphertext length."); 
+		showError("key is too large for the ciphertext length."); 
 		return; 
 	}      
-    if(key==1) 
+    if(key == 1) 
 		plaintext = ciphertext;
     else{
       pt = new Array(ciphertext.length);   
@@ -52,14 +52,14 @@ function RailDecrypt(text, key) {
 		  j = 0;
         for(i = line; i < ciphertext.length;){
             pt[i] = ciphertext.charAt(k++);
-       	    if((line==0) || (j%2 == 0)) 
-				i+=skip;
+       	    if((line == 0) || (j%2 == 0)) 
+				i += skip;
         	else 
-			  i+=2*(key-1) - skip;  
+			  i += 2 * (key-1) - skip;  
 			j++;        
         }
       }
-      for(i=line; i<ciphertext.length; i+=2*(key-1)) 
+      for(i = line; i < ciphertext.length; i += 2 * (key-1)) 
 		pt[i] = ciphertext.charAt(k++);
       plaintext = pt.join("");
     }

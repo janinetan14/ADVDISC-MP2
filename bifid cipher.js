@@ -4,28 +4,28 @@ function BifidEncrypt(text, keysquare, period) {
 	
     // do some error checking
     if(plaintext.length < 1){ 
-		alert("please enter some plaintext (letters only)"); 
+		showError("please enter some plaintext (letters only)"); 
 		return; 
 	}  
 	
     if(keysquare.length != 25){ 
-		alert("keysquare must be 25 characters in length"); 
+		showError("keysquare must be 25 characters in length"); 
 		return; 
 	}
 	
     if(keysquare.indexOf("j") >= 0){ 
-		alert("key should not contain letter j (combine with i)."); 
+		showError("key should not contain letter j (combine with i)."); 
 		return; 
 	}
 	
     //period = plaintext.length;
     if(isNaN(period)){
-		alert("period should be an integer"); 
+		showError("period should be an integer"); 
 		return; 
 	};
 	
     if(period <= 0){
-		alert("period should greater than 0"); 
+		showError("period should greater than 0"); 
 		return; 
 	};
 	
@@ -65,25 +65,25 @@ function BifidDecrypt(text, keysquare, period) {
 	
     // do some error checking
     if(ciphertext.length < 1){ 
-		alert("please enter some ciphertext (letters only)"); 
+		showError("please enter some ciphertext (letters only)"); 
 		return; 
 	}    
     if(keysquare.length != 25){ 
-		alert("keysquare must be 25 characters in length"); 
+		showError("keysquare must be 25 characters in length"); 
 		return; 
 	}
     if(keysquare.indexOf("j") >= 0){
-		alert("key should not contain letter j (combine with i)."); 
+		showError("key should not contain letter j (combine with i)."); 
 		return; 
 	}
 	
     //period = ciphertext.length;
     if(isNaN(period)){
-		alert("period should be an integer"); 
+		showError("period should be an integer"); 
 		return; 
 	}  ;
     if(period<=0){
-		alert("period should greater than 0"); 
+		showError("period should greater than 0"); 
 		return; 
 	}  ;
 	
