@@ -14,76 +14,94 @@ var lastToggled;
 			lastToggled.slideToggle();
 		}
 	});
-	
-	$(".btn").click(function(){
-		clearResultsPanel();
-		if(this.name == "adfgvx-encrypt"){
-			var input = getADFGVXValue();
-			showResult("Encrypted Message: " + ADFGVXEncrypt(input.message, input.keyword, input.square));
-		}
-		else if (this.name == "adfgvx-decrypt"){
-			var input = getADFGVXValue();
-			showResult("Decrypted Message: " + ADFGVXDecrypt(input.message, input.keyword, input.square));
-		}
-		else if (this.name == "adfgvx-randomSquare"){
+	$(".btn").click(function(event){
+		event.preventDefault();
+		
+		// for randomized inputs
+		if (this.name == "adfgvx-randomSquare"){
 			$("#adfgvx-square").val(GenRandKey("abcdefghijklmnopqrstuvwxyz0123456789"));
-		}
-		else if (this.name == "bifid-encrypt"){
-			var input = getBifidValue();
-			showResult("Encrypted Message: " + BifidEncrypt(input.message, input.square, input.period));
-		}
-		else if (this.name == "bifid-decrypt"){
-			var input = getBifidValue();
-			showResult("Decrypted Message: " + BifidDecrypt(input.message, input.square, input.period));
-		}
+		}		
 		else if (this.name == "bifid-randomSquare"){
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
-		}
-		else if (this.name == "caesar-encrypt"){
-			var input = getCaesarValue();
-			showResult("Encrypted Message: " + CaesarEncrypt(input.message, input.shift));
-		}
-		else if (this.name == "caesar-decrypt"){
-			var input = getCaesarValue();
-			showResult("Decrypted Message: " + CaesarDecrypt(input.message, input.shift));
-		}
-		else if (this.name == "hill-encrypt"){
-			 var input = getHillValue();
-             HillEncrypt(input.message,input.matrix);
-		}
-		else if (this.name == "hill-decrypt"){
-			var input = getHillValue();
-            HillDecrypt(input.message,input.matrix);
-		}
-		else if (this.name == "playfair-encrypt"){
-			var input = getPlayfailValue();
-			showResult("Encrypted Message: " + DoPlayfair(input.message, input.keyword, "E"));
-		}
-		else if (this.name == "playfair-decrypt"){
-			var input = getPlayfailValue();
-			showResult("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
-		}
-		else if (this.name == "rail-encrypt"){
-			var input = getRailValue();
-			showResult("Encrypted Message: " + RailEncrypt(input.message, input.key));
-		}
-		else if (this.name == "rail-decrypt"){
-			var input = getRailValue();
-			showResult("Decrypted Message: " + RailDecrypt(input.message, input.key));
-		}
-		else if (this.name == "straddle-encrypt"){
-			var input = getStraddleValue();
-			showResult("Encrypted Message: " + StraddleCheckerboardEncrypt(input.message, input.key, input.num1, input.num2));
-		}
-		else if (this.name == "straddle-decrypt"){
-			var input = getStraddleValue();
-			showResult("Decrypted Message: " + StraddleCheckerboardDecrypt(input.message, input.key, input.num1, input.num2));
 		}
 		else if (this.name == "straddle-randomKey"){
 			$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
 		}
+		else {
+			if (validateForm(this.closest('form'))){
+				clearResultsPanel();
+				if(this.name == "adfgvx-encrypt"){
+					var input = getADFGVXValue();
+					showResult("Encrypted Message: " + ADFGVXEncrypt(input.message, input.keyword, input.square));
+				}
+				else if (this.name == "adfgvx-decrypt"){
+					var input = getADFGVXValue();
+					showResult("Decrypted Message: " + ADFGVXDecrypt(input.message, input.keyword, input.square));
+				}
+				else if (this.name == "bifid-encrypt"){
+					var input = getBifidValue();
+					showResult("Encrypted Message: " + BifidEncrypt(input.message, input.square, input.period));
+				}
+				else if (this.name == "bifid-decrypt"){
+					var input = getBifidValue();
+					showResult("Decrypted Message: " + BifidDecrypt(input.message, input.square, input.period));
+				}
+				else if (this.name == "caesar-encrypt"){
+					var input = getCaesarValue();
+					showResult("Encrypted Message: " + CaesarEncrypt(input.message, input.shift));
+				}
+				else if (this.name == "caesar-decrypt"){
+					var input = getCaesarValue();
+					showResult("Decrypted Message: " + CaesarDecrypt(input.message, input.shift));
+				}
+				else if (this.name == "hill-encrypt"){
+					 var input = getHillValue();
+					 HillEncrypt(input.message,input.matrix);
+				}
+				else if (this.name == "hill-decrypt"){
+					var input = getHillValue();
+					HillDecrypt(input.message,input.matrix);
+				}
+				else if (this.name == "playfair-encrypt"){
+					var input = getPlayfailValue();
+					showResult("Encrypted Message: " + DoPlayfair(input.message, input.keyword, "E"));
+				}
+				else if (this.name == "playfair-decrypt"){
+					var input = getPlayfailValue();
+					showResult("Decrypted Message: " + DoPlayfair(input.message, input.keyword, "D"));
+				}
+				else if (this.name == "rail-encrypt"){
+					var input = getRailValue();
+					showResult("Encrypted Message: " + RailEncrypt(input.message, input.key));
+				}
+				else if (this.name == "rail-decrypt"){
+					var input = getRailValue();
+					showResult("Decrypted Message: " + RailDecrypt(input.message, input.key));
+				}
+				else if (this.name == "straddle-encrypt"){
+					var input = getStraddleValue();
+					showResult("Encrypted Message: " + StraddleCheckerboardEncrypt(input.message, input.key, input.num1, input.num2));
+				}
+				else if (this.name == "straddle-decrypt"){
+					var input = getStraddleValue();
+					showResult("Decrypted Message: " + StraddleCheckerboardDecrypt(input.message, input.key, input.num1, input.num2));
+				}
+			}
+		}
 	});
 })();
+
+function validateForm(parent){
+    var result = true;
+    $(parent).validator('validate');
+    $(parent).find('.form-group').each(function(){
+        if($(this).hasClass('has-error')){
+            result = false;
+            return false;
+        }
+    });
+    return result;
+}
 
 function getADFGVXValue(){
 	var message = $("#adfgvx-message").val();
