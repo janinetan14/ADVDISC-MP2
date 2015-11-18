@@ -15,7 +15,7 @@ var lastToggled;
 			lastToggled.slideToggle();
 		}
 	});
-	
+
 	$(".btn").click(function(event){
 		event.preventDefault();
 		// for randomized inputs

@@ -8,7 +8,8 @@ function RailEncrypt(text, key) {
     if(key > Math.floor(2*(plaintext.length-1))){ 
 		alert("key is too large for the plaintext length."); 
 		return; 
-	}  
+	}
+	showRailFenceMatrix(text, key);
     if(key == 1) 
 		ciphertext = plaintext;
     else{
@@ -41,7 +42,8 @@ function RailDecrypt(text, key) {
     if(key > Math.floor(2*(ciphertext.length-1))){ 
 		alert("key is too large for the ciphertext length."); 
 		return; 
-	}      
+	}
+	showRailFenceMatrix(text, key);
     if(key==1) 
 		plaintext = ciphertext;
     else{
@@ -64,4 +66,33 @@ function RailDecrypt(text, key) {
       plaintext = pt.join("");
     }
 	return plaintext;
+}
+
+function showRailFenceMatrix(message, key){
+	var matrix = [];
+	var segment = 2*key - 2;
+	for (var i = 0; i < key; i++){
+		matrix[i] = [];
+	}
+	
+	for (var i = 0; i < message.length; i++){
+		for (var j = 0; j < key; j++){
+			matrix[j][i] = '.';
+		}
+		var pos = i%segment;
+		if (pos < key){
+			matrix[pos][i] = message.charAt(i);
+		}
+		else{
+			matrix[key - pos%(key-1) - 1][i] = message.charAt(i);
+		}
+	}
+	
+	var text = "";
+	for (var i = 0; i < key; i++){
+		for (var j = 0; j < message.length; j++)
+			text += matrix[i][j] + " ";
+		text += "<br>";
+	}
+	showString(text);
 }
