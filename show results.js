@@ -9,7 +9,7 @@ function addMatrixDisplayer(matrix){
 function printMatrix(matrix, formulaLabel){
 	var rows = matrix.length;
 	var cols = matrix[0].length;
-	console.log(rows + " " + cols);
+	
 	var math = document.getElementById(formulaLabel);
 	var matrixContent = '$$\\begin{bmatrix}';
 	for (var i = 0; i < rows; i++){

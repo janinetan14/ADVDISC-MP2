@@ -20,4 +20,23 @@ function translateToMatrixNumbers(message, size){
 			k++;
 		}
 	}
+	return matrix;
+}
+
+function translateMatrixToMessage(matrix){
+	var rows = matrix.length;
+	var cols = matrix[0].length;
+	var message = "";
+	for (var i = 0; i < cols; i++){
+		for (var j = 0; j < rows; j++){
+			if (matrix[j][i] == 27){
+				message += ' ';
+			}
+			else{
+				matrix[j][i] += 64;
+				message += String.fromCharCode(matrix[j][i]);
+			}
+		}
+	}
+	return message;
 }
