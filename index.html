@@ -21,21 +21,21 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="adfgvx-message" required></input>
-							    <div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="adfgvx-message" required pattern="[A-z 0-9]+"></input>
+							    <div class="help-block col-md-offset-3">Please enter text with A-z and numbers.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key Square: </label>
 								<div class="input-group col-md-8">
-									<input type="text" class="form-control" id="adfgvx-square" required disabled></input>
+									<input type="text" class="form-control" id="adfgvx-square" readonly></input>
 									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;" name="adfgvx-randomSquare">Random</button></span>
 								</div>
 								<div class="help-block with-errors col-md-offset-3"></div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key Word: </label>
-								<input type="text" class="form-control" id="adfgvx-key"required ></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="adfgvx-key"required pattern="[A-z]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="pull-right">
 								<button type="submit" class="btn btn-default" name="adfgvx-encrypt">Encrypt</button>
@@ -50,13 +50,13 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="bifid-message" required></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="bifid-message" required pattern="[A-z]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key Square: </label>
 								<div class="input-group col-md-8">
-									<input type="text" class="form-control" id="bifid-square" required disabled></input>
+									<input type="text" class="form-control" id="bifid-square" readonly></input>
 									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;" name="bifid-randomSquare">Random</button></span>
 								</div>
 								<div class="help-block with-errors col-md-offset-3"></div>
@@ -121,13 +121,13 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="playfair-message" required></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="playfair-message" required pattern="[A-z]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key Word: </label>
-								<input type="text" class="form-control" id="playfair-key"required ></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="playfair-key"required pattern="[A-z]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="pull-right">
 								<button type="submit" class="btn btn-default" name="playfair-encrypt">Encrypt</button>
@@ -163,13 +163,13 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="straddle-message" required></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="straddle-message" required pattern="[A-z]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key: </label>
 								<div class="input-group col-md-8">
-									<input type="text" class="form-control" id="straddle-key" required disabled></input>
+									<input type="text" class="form-control" id="straddle-key" readonly></input>
 									<span class="input-group-btn"><button class="btn btn-info" type="button" style="height: 30px;" name="straddle-randomKey">Random</button></span>
 								</div>
 								<div class="help-block with-errors col-md-offset-3"></div>

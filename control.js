@@ -106,6 +106,8 @@ function validateForm(parent){
 function getADFGVXValue(){
 	var message = $("#adfgvx-message").val();
 	var keyword = $("#adfgvx-key").val();
+	if ($("#adfgvx-square").val() == "")
+		$("#adfgvx-square").val(GenRandKey("abcdefghijklmnopqrstuvwxyz0123456789"));
 	var square = $("#adfgvx-square").val();
 	return {message: message, keyword: keyword, square: square};
 }
@@ -113,6 +115,8 @@ function getADFGVXValue(){
 function getBifidValue(){
 	var message = $("#bifid-message").val();
 	var period = parseInt($("#bifid-period").val());
+	if ($("#bifid-square").val() == "")
+		$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 	var square = $("#bifid-square").val();
 	return {message: message, period: period, square: square};
 }
@@ -146,6 +150,8 @@ function getRailValue(){
 
 function getStraddleValue(){
 	var message = $("#straddle-message").val();
+	if ($("#straddle-key").val() == "")
+		$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
 	var key = $("#straddle-key").val();
 	var num1 = parseInt($("#straddle-num1").val());
 	var num2 = parseInt($("#straddle-num2").val());
