@@ -5,6 +5,7 @@ var lastToggled;
 	$(".option .body").hide();
 	
 	$(".option .header").click(function(){
+		$(".form-group").removeClass("has-error");
 		var toggledNow = $($(this).parent()).children(".body");
 		if (!(toggledNow.is(lastToggled))){
 			$(".option input, .option textarea").val("");
@@ -14,9 +15,9 @@ var lastToggled;
 			lastToggled.slideToggle();
 		}
 	});
+	
 	$(".btn").click(function(event){
 		event.preventDefault();
-		
 		// for randomized inputs
 		if (this.name == "adfgvx-randomSquare"){
 			$("#adfgvx-square").val(GenRandKey("abcdefghijklmnopqrstuvwxyz0123456789"));
