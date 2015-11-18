@@ -202,12 +202,12 @@ function HillEncrypt(message, matrix)
 	var multipliedMatrix = multiply(matrix,numMatrix);
 	addMatrixDisplayer(multipliedMatrix);
 	var encrypted = translateMatrixToMessage(multipliedMatrix);
-	showResult(encrypted);
+	showResult("Encrypted Message: " + encrypted);
 }
     
 function HillDecrypt(message,matrix)
 {
-    showString('Message:'+ message);
+    /*showString('Message:'+ message);
     showString('Message Matrix');
     var mesMatrix = translateToMatrixNumbers(message,matrix[0].length);
     addMatrixDisplayer(mesMatrix);
@@ -227,5 +227,30 @@ function HillDecrypt(message,matrix)
         var decMes = translateMatrixToMessage(decryptedMatrix);
         showString('Decrypted Text');
         showString(decMes);
-    }
+    }*/
+	var det = 0;
+	var adjMatrix;
+	if (matrix.length == 2){
+		det = getDeteminantOf2x2(matrix);
+		adjMatrix = getAdjugateOf2x2(matrix);
+	}
+	showString("Determinant: " + det);
+	showString("Adjugate Matrix");
+	addMatrixDisplayer(adjMatrix);
+	
+	var mi = getMultiplicativeInverse(det);
+	showString("Multiplicative Inverse: " + mi);
+	
+	var keyMatrix = multiplyByDeterminant(adjMatrix,mi);
+	showString("Inverse Key Matrix: ");
+	addMatrixDisplayer(keyMatrix);
+	
+	var numMatrix = translateToMatrixNumbers(message, matrix.length);
+	addMatrixDisplayer(numMatrix);
+	
+	var multipliedMatrix = multiply(keyMatrix, numMatrix);
+	addMatrixDisplayer(multipliedMatrix);
+	
+	var decrypted = translateMatrixToMessage(multipliedMatrix);
+	showResult("Encrypted Message: " + decrypted);
 }

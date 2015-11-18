@@ -40,3 +40,39 @@ function translateMatrixToMessage(matrix){
 	}
 	return message;
 }
+
+function getDeteminantOf2x2(matrix){
+	var det = matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
+	while (det < 0)
+		det+=26;
+	return det%26;
+}
+
+function getAdjugateOf2x2(matrix){
+	return adj = [[matrix[1][1], -1*matrix[0][1]], [-1*matrix[1][0], matrix[0][0]] ];
+}
+
+function getMultiplicativeInverse(det){
+	var ctr = 1;
+	var inverse = det;
+	while (inverse%26 != 1){
+		ctr++;
+		inverse = det*ctr;
+	}
+	return ctr;
+}
+
+function multiplyByDeterminant(matrix, mi){
+	var rows = matrix.length;
+	var cols = matrix[0].length;
+	
+	for (var i = 0; i < rows; i++){
+		for (var j =0; j < cols; j++){
+			matrix[i][j] *= mi;
+			while (matrix[i][j] < 0)
+				matrix[i][j]+=26;
+			matrix[i][j]%=26;
+		}
+	}
+	return matrix;
+}
