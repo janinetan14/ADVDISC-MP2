@@ -86,8 +86,8 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="caesar-message" required></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="caesar-message" pattern="[A-z ]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Shift: </label>
@@ -107,8 +107,8 @@
 						<form class="form-horizontal" data-toggle="validator">
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
-								<input type="text" class="form-control" id="hill-message"required ></input>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<input type="text" class="form-control" id="hill-message"required pattern="[A-z ]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Encryption Matrix: </label>
@@ -129,7 +129,7 @@
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Message: </label>
 								<input type="text" class="form-control" id="playfair-message" required pattern="[A-z]+"></input>
-								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
+								<div class="help-block col-md-offset-3">Please enter text with A-z. (No spaces)</div>
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Key Word: </label>
