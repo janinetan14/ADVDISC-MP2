@@ -7,17 +7,17 @@ function ADFGVXEncrypt(text, keyword, keysquare) {
 	
     // do some error checking
     if(plaintext.length < 1){ 
-		alert("please enter some plaintext (letters and numbers only)"); 
+		showError("please enter some plaintext (letters and numbers only)"); 
 		return; 
 	}    
 	
     if(keysquare.length != 36){ 
-		alert("keysquare must be 36 characters in length"); 
+		showError("keysquare must be 36 characters in length"); 
 		return; 
 	}
 	
     if(keyword.length <= 1){ 
-		alert("keyword should be at least 2 characters long"); 
+		showError("keyword should be at least 2 characters long"); 
 		return; 
 	}
 	
@@ -62,27 +62,27 @@ function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
 
     // do some error checking
     if(ciphertext.length < 1){ 
-		alert("please enter some ciphertext (letters only)"); 
+		showError("please enter some ciphertext (letters only)"); 
 		return; 
 	}    
 	
     if(re.test(ciphertext)){
-		alert("ciphertext can only contain A,D,F,G,V or X characters."); 
+		showError("ciphertext can only contain A,D,F,G,V or X characters."); 
 		return;
 	};
 	
     if(ciphertext.length % 2 != 0){
-		alert("number of ciphertext characters must be even"); 
+		showError("number of ciphertext characters must be even"); 
 		return; 
 	}  
 	
     if(keysquare.length != 36){ 
-		alert("keysquare must be 36 characters in length"); 
+		showError("keysquare must be 36 characters in length"); 
 		return; 
 	}
 	
     if(klen <= 1){ 
-		alert("keyword should be at least 2 characters long");
+		showError("keyword should be at least 2 characters long");
 		return; 
 	}
 	

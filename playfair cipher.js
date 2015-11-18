@@ -41,7 +41,7 @@ function DoPlayfair(et, key1, dir)
 	MakePlayfairSquare(key1);
 	var regexNum = /\d/g;
 	if(regexNum.test(et)){
-		alert("please enter some plaintext (letters only)"); 
+		showError("please enter some plaintext (letters only)"); 
 		return; 
 	}
 	

@@ -111,13 +111,13 @@ function translateToNumber(str,em)
             if(k<m.length)
             {
                 if(m[k]!=32)
-                    a[j][i]=m[k]-64; //replace ascii values with numbers 1-26
+                    a[j][i]=m[k]-64; //replace ascii values with numbers 0-25
                 else
-                    a[j][i]=27; // replace space with 27
+                    a[j][i]=0; // replace space with 26
                 k++;
             }
             else
-                a[j][i]=27; //fill in remaining slots with spaces(27)
+                a[j][i]=0; //fill in remaining slots with spaces(26)
         }
     }
     return a;
@@ -133,9 +133,11 @@ function translateToWord(a)
         {
             if(k<iMax*jMax)
             {
-                if(a[j][i]!=27)
+                if(a[j][i]%27 !=0)
                 {
-                    m[k]=String.fromCharCode(a[j][i]+64); //replace numbers 1-26 with ascii values
+                    while(a[j][i]<0)
+                        a[j][i]+=27;
+                    m[k]=String.fromCharCode((a[j][i] % 27)+64); //replace numbers 0-25 with ascii values
                 }
                 else
                     m[k]=String.fromCharCode(32); //replace space with ascii value 32
@@ -143,23 +145,6 @@ function translateToWord(a)
             }
             else
                 m[k]= String.fromCharCode(32); // replace space with ascii value 32
-        }
-    }
-    return m;
-}
-function translateFromAscii(a)
-{
-    var iMax =a.length, jMax = a[0].length,k=0,m=[];
-    
-    for (i=0;i<jMax;i++) 
-    {
-        for (j=0;j<iMax;j++) 
-        {
-            if(k<iMax*jMax)
-            {
-                m[k]=String.fromCharCode(a[j][i]); //translate numbers in matrix to ascii values
-                k++;
-            }
         }
     }
     return m;
@@ -188,7 +173,7 @@ function hillDecryption(mesMatrix, invMatrix)
         return multiply(invMatrix,mesMatrix);
     else
     {
-        console.log('Matrix used to encrypt has no inverse thus cannot be decrypted');
+        
         return false;
     }
 }
@@ -207,7 +192,7 @@ function HillEncrypt(message, matrix)
     addMatrixDisplayer(encryptedMatrix);
     
     showString('Encrypted Text');
-    var encMes = translateFromAscii(encryptedMatrix);
+    var encMes = translateToWord(encryptedMatrix);
     var i,outp='';
     for(i=0;i<encMes.length;i++)
         outp+=encMes[i]+'';
@@ -222,14 +207,19 @@ function HillDecrypt(message,matrix)
     addMatrixDisplayer(mesMatrix);
     
     showString('Inverted Matrix');
-    var invMatrix = invertMatrix(matrix); 
-    addMatrixDisplayer(invMatrix);
-    
-    showString('Decrypted Matrix');
-    var decryptedMatrix = (hillDecryption(mesMatrix,invMatrix));
-    addMatrixDisplayer(decryptedMatrix);
-    
-    var decMes = translateToWord(decryptedMatrix);
-    showString('Decrypted Text');
-    showString(decMes);
+    var invMatrix = invertMatrix(matrix);
+    if (typeof invMatrix == "undefined") 
+        showError('Matrix used to encrypt has no inverse thus cannot be decrypted');
+    else
+    {
+        addMatrixDisplayer(invMatrix);
+
+        showString('Decrypted Matrix');
+        var decryptedMatrix = (hillDecryption(mesMatrix,invMatrix));
+        addMatrixDisplayer(decryptedMatrix);
+
+        var decMes = translateToWord(decryptedMatrix);
+        showString('Decrypted Text');
+        showString(decMes);
+    }
 }
