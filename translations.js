@@ -10,12 +10,12 @@ function translateToMatrixNumbers(message, size){
 		for (var j = 0; j < size; j++){
 			if (k < message.length){
 				if (message.charAt(k) != ' ')
-					matrix[j][i] = message.charCodeAt(k) - 64;
+					matrix[j][i] = message.charCodeAt(k) - 65;
 				else
-					matrix[j][i] = 27;
+					matrix[j][i] = 26;
 			}
 			else{
-				matrix[j][i] = 27;
+				matrix[j][i] = 26;
 			}
 			k++;
 		}
@@ -29,11 +29,11 @@ function translateMatrixToMessage(matrix){
 	var message = "";
 	for (var i = 0; i < cols; i++){
 		for (var j = 0; j < rows; j++){
-			if (matrix[j][i] == 27){
+			if (matrix[j][i] == 26){
 				message += ' ';
 			}
 			else{
-				matrix[j][i] += 64;
+				matrix[j][i] = (Math.abs(matrix[j][i])%26) + 65;
 				message += String.fromCharCode(matrix[j][i]);
 			}
 		}

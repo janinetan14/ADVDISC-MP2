@@ -15,7 +15,8 @@ var lastToggled;
 			lastToggled.slideToggle();
 		}
 	});
-
+	addMatrixDisplayer(translateToMatrixNumbers("THEGOLDISBURIEDINORONO", 2));
+	showResult(translateMatrixToMessage([[6,25]]));
 	$(".btn").click(function(event){
 		event.preventDefault();
 		// for randomized inputs

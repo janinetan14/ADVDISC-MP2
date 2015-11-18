@@ -180,7 +180,7 @@ function hillDecryption(mesMatrix, invMatrix)
 
 function HillEncrypt(message, matrix)
 {
-    showString('Message:'+ message);
+    /*showString('Message:'+ message);
     showString('Encryption Matrix');
     addMatrixDisplayer(matrix);
     showString('Message Matrix');
@@ -196,7 +196,13 @@ function HillEncrypt(message, matrix)
     var i,outp='';
     for(i=0;i<encMes.length;i++)
         outp+=encMes[i]+'';
-    showString(outp);
+    showString(outp);*/
+	var numMatrix = translateToMatrixNumbers(message, matrix.length);
+	addMatrixDisplayer(numMatrix);
+	var multipliedMatrix = multiply(matrix,numMatrix);
+	addMatrixDisplayer(multipliedMatrix);
+	var encrypted = translateMatrixToMessage(multipliedMatrix);
+	showResult(encrypted);
 }
     
 function HillDecrypt(message,matrix)
