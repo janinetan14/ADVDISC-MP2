@@ -32,7 +32,7 @@ function charEncrypt(str, amount) {
 	return output;
 }
 
-function CaesarDecrypt(str, amount) {
+function charDecrypt(str, amount) {
 	// Wrap the amount
 	if (amount < 0)
 		return caesarShift(str, amount + 26);
@@ -66,14 +66,28 @@ function CaesarDecrypt(str, amount) {
 	return output;
 }
 
-function OneTimePadEncrypt(keychars){
+function OTPGenRandKey(keychars){
     var keychars = keychars.toUpperCase();
     var chars = keychars.split("");
-    var ret = ""; 
+    var letterKey = ""; 
+    var numKey="";
 	var lim = chars.length;
+    var i;
     for(i = 0; i < lim; i++){
         index = Math.floor(chars.length*Math.random());
-        ret += charEncrypt(chars[i],index);
+        numKey+=index;
+        letterKey += String.fromCharCode(index+65);
     } 
+    return {letterKey: letterKey, numKey: numKey};
+}
+function OTPEncrypt(keychars,numKey){
+    var keychars = keychars.toUpperCase();
+    var chars = keychars.split("");
+    var nums = numKey.split("");
+    var lim = chars.length;
+    var i,ret='';
+    for(i=0; i < lim; i++){
+        ret += charEncrypt(chars[i],index);
+    }
     return ret;
 }
