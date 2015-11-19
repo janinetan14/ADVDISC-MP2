@@ -37,9 +37,11 @@ var lastToggled;
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
 		else if (this.name == "onetime-randomKey"){
-            var mes = getOneTimeValue().message;
-            if(mes)
-			$("#onetime-key").val(OTPGenRandKey(mes));
+			var message = $("#onetime-message").val();
+            if (message.length != 0)
+				$("#onetime-key").val(OTPGenRandKey(message));
+			else
+				showError("Please enter message before generating random key.");
 		}
 		else if (this.name == "straddle-randomKey"){
 			$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
@@ -81,7 +83,6 @@ var lastToggled;
 				}
 				else if (this.name == "onetime-encrypt"){
 					var input = getOneTimeValue();
-                    var key()
                     showResult("Encrypted Message: " + OTPEncrypt())
 				}
 				else if (this.name == "onetime-decrypt"){
@@ -174,6 +175,10 @@ function getHillValue(){
 function getOneTimeValue(){
 	var message = $("#onetime-message").val();
 	var keyword = $("#onetime-key").val();
+	if (message.length != keyword.length){
+		$("#onetime-key").val(OTPGenRandKey(message));
+		keyword = $("#onetime-key").val();
+	}
 	return {message: message, keyword: keyword};
 }
 
