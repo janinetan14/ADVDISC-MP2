@@ -36,6 +36,9 @@ var lastToggled;
 		else if (this.name == "bifid-randomSquare"){
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
+		else if (this.name == "onetime-randomKey"){
+			$("#onetime-key").val("random key here!!");
+		}
 		else if (this.name == "straddle-randomKey"){
 			$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
 		}
@@ -73,6 +76,14 @@ var lastToggled;
 				else if (this.name == "hill-decrypt"){
 					var input = getHillValue();
 					HillDecrypt(input.message,input.matrix);
+				}
+				else if (this.name == "onetime-encrypt"){
+					var input = getOneTimeValue();
+					console.log(input);
+				}
+				else if (this.name == "onetime-decrypt"){
+					var input = getOneTimeValue();
+					console.log(input);
 				}
 				else if (this.name == "playfair-encrypt"){
 					var input = getPlayfailValue();
@@ -156,6 +167,12 @@ function getHillValue(){
 			x++;
 	})
 	return {message: message, matrix: matrix};
+}
+
+function getOneTimeValue(){
+	var message = $("#onetime-message").val();
+	var keyword = $("#onetime-key").val();
+	return {message: message, keyword: keyword};
 }
 
 function getPlayfailValue(){
