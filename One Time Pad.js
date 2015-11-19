@@ -1,3 +1,4 @@
+var numKey;
 function charEncrypt(str, amount) {
 	// Wrap the amount
 	if (amount < 0)
@@ -70,7 +71,7 @@ function OTPGenRandKey(keychars){
     var keychars = keychars.toUpperCase();
     var chars = keychars.split("");
     var letterKey = ""; 
-    var numKey="";
+    numKey="";
 	var lim = chars.length;
     var i;
     for(i = 0; i < lim; i++){
@@ -78,9 +79,9 @@ function OTPGenRandKey(keychars){
         numKey+=index;
         letterKey += String.fromCharCode(index+65);
     } 
-    return {letterKey: letterKey, numKey: numKey};
+    return letterKey;
 }
-function OTPEncrypt(keychars,numKey){
+function OTPEncrypt(keychars){
     var keychars = keychars.toUpperCase();
     var chars = keychars.split("");
     var nums = numKey.split("");
