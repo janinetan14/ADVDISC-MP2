@@ -83,10 +83,11 @@ var lastToggled;
 				}
 				else if (this.name == "onetime-encrypt"){
 					var input = getOneTimeValue();
-                    showResult("Encrypted Message: " + OTPEncrypt())
+                    showResult("Encrypted Message: " + OTPEncrypt(input.message));
 				}
 				else if (this.name == "onetime-decrypt"){
 					var input = getOneTimeValue();
+                    showResult("Encrypted Message: " + OTPDecrypt(input.message));
 				}
 				else if (this.name == "playfair-encrypt"){
 					var input = getPlayfailValue();
@@ -173,7 +174,7 @@ function getHillValue(){
 }
 
 function getOneTimeValue(){
-	var message = $("#onetime-message").val();
+	var message = $("#onetime-message").val().toUpperCase();
 	var keyword = $("#onetime-key").val();
 	if (message.length != keyword.length){
 		$("#onetime-key").val(OTPGenRandKey(message));
