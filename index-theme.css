@@ -50,3 +50,7 @@ body{
 .resultString{
 	font-weight: 700;
 }
+.hill-matrix input{
+	width: 20%;
+	display: initial;
+}

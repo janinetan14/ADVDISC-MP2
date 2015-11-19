@@ -9,11 +9,21 @@ var lastToggled;
 		var toggledNow = $($(this).parent()).children(".body");
 		if (!(toggledNow.is(lastToggled))){
 			$(".option input, .option textarea").val("");
+			$("#hill-matSize").val("2");
+			$("#hill-matSize").keyup();
+			$(".hill-matrix input").val("0");
 			if (typeof lastToggled != "undefined")
 				lastToggled.slideToggle();
 			lastToggled = toggledNow;
 			lastToggled.slideToggle();
 		}
+	});
+	
+	$("#hill-matSize").bind('keyup mouseup', function () {
+		if(this.value == 2)
+			$(".3").hide();
+		else
+			$(".3").show();
 	});
 	
 	$(".btn").click(function(event){
@@ -56,8 +66,8 @@ var lastToggled;
 					showResult("Decrypted Message: " + CaesarDecrypt(input.message, input.shift));
 				}
 				else if (this.name == "hill-encrypt"){
-					 var input = getHillValue();
-					 HillEncrypt(input.message,input.matrix);
+					var input = getHillValue();
+					HillEncrypt(input.message,input.matrix);
 				}
 				else if (this.name == "hill-decrypt"){
 					var input = getHillValue();
@@ -130,10 +140,20 @@ function getCaesarValue(){
 
 function getHillValue(){
 	var message = $("#hill-message").val().toUpperCase();
-	var tempMatrix = $("#hill-matrix").val().split("\n");
+	var n = parseInt($("#hill-matSize").val());
 	var matrix = [];
-	for (var i = 0; i < tempMatrix.length; i++)
-		matrix[i] = tempMatrix[i].split(/ *, */);
+	for ( var i = 0; i < n; i++ ){
+		matrix[i] = [];
+	}
+	var x = 0, y = 0;
+	$('.hill-matrix input:visible').each(function() {
+		matrix[y][x] = $(this).val() ;
+		if ( x == n - 1 ){
+			x = 0; y++;
+		}
+		else
+			x++;
+	})
 	return {message: message, matrix: matrix};
 }
 

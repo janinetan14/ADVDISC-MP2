@@ -112,8 +112,20 @@
 							</div>
 							<div class="form-group form-group-sm">
 								<label class="col-md-3 control-label">Encryption Matrix: </label>
-								<textarea class="form-control" rows="5" id="hill-matrix"required ></textarea>
-								<div class="help-block with-errors col-md-offset-3"></div>
+								<!--<textarea class="form-control" rows="5" id="hill-matrix"required ></textarea>
+								<div class="help-block with-errors col-md-offset-3"></div>-->
+								<input type="number" value="2" class="form-control" id="hill-matSize" min="2" max="3" onkeydown="return false" required></input>
+								<div class="hill-matrix col-md-offset-3" style="padding-top: 10px;">
+									<input type="number" class="form-control" required/>
+									<input type="number" class="form-control" required></input>
+									<input type="number" class="form-control 3" required></input><br>
+									<input type="number" class="form-control" required></input>
+									<input type="number" class="form-control" required></input>
+									<input type="number" class="form-control 3" required></input><br>
+									<input type="number" class="form-control 3" required></input>
+									<input type="number" class="form-control 3" required></input>
+									<input type="number" class="form-control 3" required></input><br>
+								</div>
 							</div>
 							<div class="pull-right">
 								<button type="submit" class="btn btn-default" name="hill-encrypt">Encrypt</button>
