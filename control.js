@@ -37,7 +37,9 @@ var lastToggled;
 			$("#bifid-square").val(GenRandKey("abcdefghiklmnopqrstuvwxyz"));
 		}
 		else if (this.name == "onetime-randomKey"){
-			$("#onetime-key").val("random key here!!");
+            var mes = getOneTimeValue().message;
+            if(mes)
+			$("#onetime-key").val(OTPGenRandKey(mes));
 		}
 		else if (this.name == "straddle-randomKey"){
 			$("#straddle-key").val(GenRandKey("abcdefghijklmnopqrstuvwxyz"));
@@ -79,11 +81,11 @@ var lastToggled;
 				}
 				else if (this.name == "onetime-encrypt"){
 					var input = getOneTimeValue();
-					console.log(input);
+                    var key()
+                    showResult("Encrypted Message: " + OTPEncrypt())
 				}
 				else if (this.name == "onetime-decrypt"){
 					var input = getOneTimeValue();
-					console.log(input);
 				}
 				else if (this.name == "playfair-encrypt"){
 					var input = getPlayfailValue();
