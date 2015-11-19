@@ -69,6 +69,7 @@ function RailDecrypt(text, key) {
 }
 
 function showRailFenceMatrix(message, key){
+	var message = message.toUpperCase().replace(/[^A-Z]/g, "");
 	var matrix = [];
 	var segment = 2*key - 2;
 	for (var i = 0; i < key; i++){
