@@ -1,4 +1,4 @@
-function CaesarEncrypt(str, amount) {
+function charEncrypt(str, amount) {
 	// Wrap the amount
 	if (amount < 0)
 		return caesarShift(str, amount + 26);
@@ -64,4 +64,16 @@ function CaesarDecrypt(str, amount) {
 
 	// All done!
 	return output;
+}
+
+function OneTimePadEncrypt(keychars){
+    var keychars = keychars.toUpperCase();
+    var chars = keychars.split("");
+    var ret = ""; 
+	var lim = chars.length;
+    for(i = 0; i < lim; i++){
+        index = Math.floor(chars.length*Math.random());
+        ret += charEncrypt(chars[i],index);
+    } 
+    return ret;
 }
