@@ -113,6 +113,15 @@ var lastToggled;
 					var input = getStraddleValue();
 					showResult("Decrypted Message: " + StraddleCheckerboardDecrypt(input.message, input.key, input.num1, input.num2));
 				}
+				else if (this.name == "vigenere-encrypt"){
+					var input = getVigenereValue();
+					//showResult("Encrypted Message: " + );
+				}
+				else if (this.name == "vigenere-decrypt"){
+					var input = getVigenereValue();
+					// showResult("Decrypted Message: " + );
+				}
+				
 			}
 		}
 	});
@@ -203,6 +212,12 @@ function getStraddleValue(){
 	var num1 = parseInt($("#straddle-num1").val());
 	var num2 = parseInt($("#straddle-num2").val());
 	return {message: message, key: key, num1: num1, num2: num2};
+}
+
+function getVigenereValue(){
+	var message = $("#vigenere-message").val();
+	var key = $("#vigenere-key").val();
+	return {message: message, key: key};
 }
 
 function showError(message){

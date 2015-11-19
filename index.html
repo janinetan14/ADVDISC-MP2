@@ -232,6 +232,27 @@
 						</form>
 					</div>
 				</div>
+				<div class="option">
+					<div class="title header">VIGENERE CIPHER</div>
+					<div class="body">
+						<form class="form-horizontal" data-toggle="validator">
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Message: </label>
+								<input type="text" class="form-control" id="vigenere-message" required pattern="[A-z ]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<label class="col-md-3 control-label">Key: </label>
+								<input type="text" class="form-control" id="vigenere-key" required pattern="[A-z ]+"></input>
+								<div class="help-block col-md-offset-3">Please enter text with A-z.</div>
+							</div>
+							<div class="pull-right">
+								<button type="submit" class="btn btn-default" name="vigenere-encrypt">Encrypt</button>
+								<button type="submit" class="btn btn-primary" name="vigenere-decrypt">Decrypt</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
