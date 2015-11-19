@@ -1,21 +1,20 @@
 function ADFGVXEncrypt(text, keyword, keysquare) {
 	DisplayKeySquare(keysquare);
-    var plaintext,ciphertext,keysquare,keyword;
+    
+	var plaintext, ciphertext, keysquare, keyword;
     plaintext = text.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
     keyword = keyword.toLowerCase().replace(/[^a-z]/g, ""); 
 	
-    // do some error checking
+	// for error catching
     if(plaintext.length < 1){ 
 		showError("please enter some plaintext (letters and numbers only)"); 
 		return; 
 	}    
-	
     if(keysquare.length != 36){ 
 		showError("keysquare must be 36 characters in length"); 
 		return; 
 	}
-	
     if(keyword.length <= 1){ 
 		showError("keyword should be at least 2 characters long"); 
 		return; 
@@ -52,26 +51,23 @@ function ADFGVXEncrypt(text, keyword, keysquare) {
 }
 
 function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
-    //This code is a serious contender for a 'poor code' award, read at your own risk 
-   //example keysquare: ai2o0d1bh6mstnwcq4lg7vyrf5e3xz9pjk8u
+	//example keysquare: ai2o0d1bh6mstnwcq4lg7vyrf5e3xz9pjk8u
     ciphertext = ciphertext.toLowerCase().replace(/[^a-z0-9]/g, "");  
     keysquare = keysquare.toLowerCase().replace(/[^a-z0-9]/g, ""); 
     keyword = keyword.toLowerCase().replace(/[^a-z]/g, ""); 
     klen = keyword.length;
     var re = /[^adfgvx]/;
 
-    // do some error checking
+    // for error catching
     if(ciphertext.length < 1){ 
 		showError("please enter some ciphertext (letters only)"); 
 		return; 
-	}    
-	
+	}
     if(re.test(ciphertext)){
 		showError("ciphertext can only contain A,D,F,G,V or X characters."); 
 		return;
 	};
-	
-    if(ciphertext.length % 2 != 0){
+	if(ciphertext.length % 2 != 0){
 		showError("number of ciphertext characters must be even"); 
 		return; 
 	}  
@@ -80,7 +76,6 @@ function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
 		showError("keysquare must be 36 characters in length"); 
 		return; 
 	}
-	
     if(klen <= 1){ 
 		showError("keyword should be at least 2 characters long");
 		return; 
@@ -137,12 +132,12 @@ function GenRandKey(keychars){
         index = Math.floor(chars.length*Math.random());
         ret += chars[index];
         chars.splice(index,1);
-    } 
+    }
     return ret.toUpperCase();
 }
 
 function DisplayKeySquare(keysquare){
-var row = new Array();
+	var row = new Array();
 	var square = "";
 	row[0] = ".|ADFGVX";
 	row[1] = "A|" + keysquare.substring(0,6);	
