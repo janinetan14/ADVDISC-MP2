@@ -132,7 +132,14 @@ function multiplyByDeterminant(matrix, mi){
 }
 
 function HillEncrypt(message, matrix){
-	if (matrix.length == 2 || matrix.length == 3){
+	var det = 0;
+	if (matrix.length == 2){
+		det = getDeteminantOf2x2(matrix);
+	}
+	else if (matrix.length == 3){
+		det = getDeteminantOf3x3(matrix);
+	}
+	if ( det != 0 ){
 		var numMatrix = translateToMatrixNumbers(message, matrix.length);
 		addMatrixDisplayer(numMatrix);
 		var multipliedMatrix = multiply(matrix,numMatrix);
@@ -141,22 +148,22 @@ function HillEncrypt(message, matrix){
 		showResult("Encrypted Message: " + encrypted);
 	}
 	else {
-		showError("Please enter a 2x2 or 3x3 Encryption Matrix");
+		showError("Please enter a different encryption matrix.");
 	}
 }
     
 function HillDecrypt(message,matrix) {
-	if (matrix.length == 2 || matrix.length == 3){
-		var det = 0;
-		var adjMatrix;
-		if (matrix.length == 2){
-			det = getDeteminantOf2x2(matrix);
-			adjMatrix = getAdjugateOf2x2(matrix);
-		}
-		else if (matrix.length == 3){
-			det = getDeteminantOf3x3(matrix);
-			adjMatrix = getAdjugateOf3x3(matrix);
-		}
+	var det = 0;
+	var adjMatrix;
+	if (matrix.length == 2){
+		det = getDeteminantOf2x2(matrix);
+		adjMatrix = getAdjugateOf2x2(matrix);
+	}
+	else if (matrix.length == 3){
+		det = getDeteminantOf3x3(matrix);
+		adjMatrix = getAdjugateOf3x3(matrix);
+	}
+	if (det != 0){
 		showString("Determinant: " + det);
 		showString("Adjugate Matrix");
 		addMatrixDisplayer(adjMatrix);
@@ -177,7 +184,7 @@ function HillDecrypt(message,matrix) {
 		var decrypted = translateMatrixToMessage(multipliedMatrix);
 		showResult("Encrypted Message: " + decrypted);
 	}
-	else {
-		showError("Please enter a 2x2 or 3x3 Encryption Matrix");
+	else{
+		showError("Please enter a different encryption matrix.");
 	}
 }

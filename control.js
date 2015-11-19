@@ -12,6 +12,7 @@ var lastToggled;
 			$("#hill-matSize").val("2");
 			$("#hill-matSize").keyup();
 			$(".hill-matrix input").val("0");
+			clearResultsPanel();
 			if (typeof lastToggled != "undefined")
 				lastToggled.slideToggle();
 			lastToggled = toggledNow;
