@@ -115,11 +115,11 @@ var lastToggled;
 				}
 				else if (this.name == "vigenere-encrypt"){
 					var input = getVigenereValue();
-					//showResult("Encrypted Message: " + );
+					showResult("Encrypted Message: " + vigenereEncrypt(input.message, input.key));
 				}
 				else if (this.name == "vigenere-decrypt"){
 					var input = getVigenereValue();
-					// showResult("Decrypted Message: " + );
+					showResult("Decrypted Message: " + vigenereDecrypt(input.message, input.key));
 				}
 				
 			}

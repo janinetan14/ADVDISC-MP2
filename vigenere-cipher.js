@@ -2,18 +2,17 @@ var arrMsg;
 var arrKeyword;
 var arrCipher;
 var arrDecrypted;
-var msg = "";
 
 
 //Makes an array that contains each character in the message
-function msgSplitString()
+function iniMessage(msg)
 {
-	msg = document.getElementById("msg").value; //get message
+	//msg = document.getElementById("msg").value; //get message
 	msg = (msg+"").split(' ').join('');
-	//alert(msg);
-	
+
+ 
 	arrMsg = [];
-	//arrMsg = new Array(msg.length()); //make array, size = length of message
+
 	for (var i = 0; i < msg.length; i++)
 	{
 		arrMsg.push(msg.charAt(i));
@@ -21,12 +20,8 @@ function msgSplitString()
 }
 
 //Makes an array that contains the characters of the keyword that fits based on the message
-function iniKeyword()
+function iniKeyword(keyword)
 {
-	var keyword = document.getElementById("keyword").value; // get keyword
-	var msg = document.getElementById("msg").value; //get message
-	console.log("Keyword is: " + keyword);
-	
 	arrKeyword = [];
 	var i = 0, j = 0;
 	while(i < arrMsg.length)
@@ -41,11 +36,18 @@ function iniKeyword()
 	
 }
 
+function iniCipher(cipheredtext)
+{
+	arrCipher = [];
+	for (var i = 0; i < cipheredtext.length; i++)
+	{
+		arrCipher.push(cipheredtext.charAt(i));
+	}
 
+}
 
 function getNumericalValue(chr)
 {
-	//alert("chr is: " + chr);
 	if(chr == "a" || chr == "A")
 		return 0;
 	else if(chr == "b" || chr == "B")
@@ -101,7 +103,6 @@ function getNumericalValue(chr)
 	else
 		alert(chr + " is an invalid input!");
 }
-
 
 function getCharacterValue(num)
 {
@@ -162,8 +163,11 @@ function getCharacterValue(num)
 
 }
 
-function vigenereEncrypt()
+function vigenereEncrypt(msg, keyword)
 {
+	iniMessage(msg);
+	iniKeyword(keyword);
+	
 	arrCipher = [];
 	
 	
@@ -173,32 +177,29 @@ function vigenereEncrypt()
 	
 		var tempNum; var tempChar; var a; var b;
 
-		//console.log("index at:" + i); //o.o checking~
 		a = getNumericalValue(arrMsg[i]);
 		b = getNumericalValue(arrKeyword[i]);
 		
-		//console.log("val of msg at " + i + " = " + a + " letter is: " + arrMsg[i]); 
-		//console.log("val of key at " + i + " = " + b + " letter is: " + arrKeyword[i]);
 		tempNum = (a + b) % 26;
-		//alert("cipher value = " + tempNum);
-		
-		//tempNum = ((getNumericalValue(arrMsg[i]) + getNumericalValue(arrKeyword[i])) % 26);  // was going to separate these two to see the value
+
 		tempChar = getCharacterValue(tempNum);
 		arrCipher.push(tempChar);
-		//console.log("cipher at index " + i + ": " + arrCipher[i]);
-		
 
-		
 	}
+	return arrCipher.toString();
 	
 }
 
-function vigenereDecrypt()
+function vigenereDecrypt(cipheredtext, keyword)
 {
+	iniCipher(cipheredtext); // puts encrypted text to array of characters
+	iniKeyword(keyword);
+	
+	
 	arrDecrypted = [];
 
 	var i = 0, j = 0;
-	for(i = 0; i < arrMsg.length; i++)
+	for(i = 0; i < arrCipher.length; i++)
 	{
 	
 	var tempNum; var tempChar; var a; var b; // a = ciphered char ; b = key char
@@ -216,21 +217,12 @@ function vigenereDecrypt()
 	}
 	else
 		tempNum = (a - b) % 26;
-	
 
-	
-	
 	tempChar = getCharacterValue(tempNum);
 	arrDecrypted.push(tempChar);
 
-	
-	
-	
-	
 	}
-
-
-
+	return arrCipher.toString();
 }
 
 
@@ -238,8 +230,8 @@ function doStuff()
 {
 	msgSplitString();
 	iniKeyword();
-	vigenereEncrypt();
-	vigenereDecrypt();
+	getCipher();
+	decrypt();
 
 
 	checkStuff();
