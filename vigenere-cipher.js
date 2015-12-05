@@ -24,7 +24,26 @@ function iniKeyword(keyword)
 {
 	arrKeyword = [];
 	var i = 0, j = 0;
+	
 	while(i < arrMsg.length)
+	{
+		arrKeyword.push((keyword+"").charAt(j));
+		j++;
+		if(j >= keyword.length)		
+			j = 0; //reset if reached end of keyword
+		
+		i++;
+	}
+	
+}
+
+//for decryption
+function iniKeyword2(keyword)
+{
+	arrKeyword = [];
+	var i = 0, j = 0;
+	
+	while(i < arrCipher.length)
 	{
 		arrKeyword.push((keyword+"").charAt(j));
 		j++;
@@ -186,14 +205,14 @@ function vigenereEncrypt(msg, keyword)
 		arrCipher.push(tempChar);
 
 	}
-	return arrCipher.toString();
+	return arrCipher.join("");
 	
 }
 
 function vigenereDecrypt(cipheredtext, keyword)
 {
 	iniCipher(cipheredtext); // puts encrypted text to array of characters
-	iniKeyword(keyword);
+	iniKeyword2(keyword);
 	
 	
 	arrDecrypted = [];
@@ -222,65 +241,5 @@ function vigenereDecrypt(cipheredtext, keyword)
 	arrDecrypted.push(tempChar);
 
 	}
-	return arrCipher.toString();
-}
-
-
-function doStuff()
-{
-	msgSplitString();
-	iniKeyword();
-	getCipher();
-	decrypt();
-
-
-	checkStuff();
-
-}
-
-
-
-
-function checkStuff()
-{
-	//display stuff (for checking only)
-	
-	var temp = "";
-
-	for (var i = 0; i < arrMsg.length; i++)
-	{
-		temp += arrMsg[i];
-	}
-	
-	 alert("message is: " + temp);
-
-	 
-	var temp2 = "";
-	
-	for (var i = 0; i < arrKeyword.length; i++)
-	{
-		temp2 += arrKeyword[i];
-	}
-
-	alert("keyword is : " + temp2);
-	
-	var temp2 = "";
-	
-	for (var i = 0; i < arrCipher.length; i++)
-	{
-		temp2 += arrCipher[i];
-	}
-
-	alert("cipher is : " + temp2);
-	
-	var temp3 = "";
-	
-	for (var i = 0; i < arrDecrypted.length; i++)
-	{
-		temp3 += arrDecrypted[i];
-	}
-
-	alert("decrypted is : " + temp3);
-	
-	
+	return arrDecrypted.join("");
 }
