@@ -9,7 +9,8 @@ function RailEncrypt(text, key) {
 		showError("key is too large for the plaintext length."); 
 		return; 
 	}
-	showRailFenceMatrix(text, key);
+	if(key!=1)
+		showRailFenceMatrix(text, key);
     if(key == 1) 
 		ciphertext = plaintext;
     else{
