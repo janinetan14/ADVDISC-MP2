@@ -43,7 +43,7 @@ function RailDecrypt(text, key) {
 		showError("key is too large for the ciphertext length."); 
 		return; 
 	}
-	showRailFenceMatrix(text, key);
+	
     if(key == 1) 
 		plaintext = ciphertext;
     else{

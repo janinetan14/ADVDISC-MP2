@@ -80,6 +80,7 @@ function ADFGVXDecrypt(ciphertext, keyword, keysquare) {
 		showError("keyword should be at least 2 characters long");
 		return; 
 	}
+	DisplayKeySquare(keysquare);
 	
     var numLongCols = ciphertext.length % klen;
     var cols = new Array(klen);
