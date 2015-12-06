@@ -59,11 +59,11 @@ function CaesarDecrypt(str, amount) {
 
 			// Uppercase letters
 			if ((code >= 65) && (code <= 90))
-				c = String.fromCharCode(((code - 65 - amount) % 26) + 65);
+				c = String.fromCharCode(((code - 65 - amount+26) % 26) + 65);
 
 			// Lowercase letters
 			else if ((code >= 97) && (code <= 122))
-				c = String.fromCharCode(((code - 97 - amount) % 26) + 97);
+				c = String.fromCharCode(((code - 97 - amount+26) % 26) + 97);
 
 		}
 
